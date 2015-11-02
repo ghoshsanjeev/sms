@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration</title>
+<!-- jQuery -->
+<script src="./../views/lib/jquery/jquery-2.1.4.min.js"></script>
+<!-- bootstrap -->
+<script src="./../views/lib/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="./../views/lib/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="./../views/lib/bootstrap/css/bootstrap-theme.min.css" />
+<!-- bootstrap file input -->
+<script
+	src="./../views/lib/bootstrap-file-input/js/plugins/canvas-to-blob.min.js"></script>
+<script src="./../views/lib/bootstrap-file-input/js/fileinput.min.js"></script>
+<link rel="stylesheet"
+	href="./../views/lib/bootstrap-file-input/css/fileinput.min.css" />
+<!-- moment js -->
+<script src="./../views/lib/scripts/moment-2.10.6.min.js"></script>
+<!-- bootstrap date-time picker -->
+<script
+	src="./../views/lib/scripts/bootstrap.datetimepicker.4.14.30.min.js"></script>
+<link rel="stylesheet"
+	href="./../views/lib/css/bootstrap.datetimepicker.4.14.30.min.css" />
+<!-- icheck -->
+<script src="./../views/lib/scripts/icheck.js"></script>
+<link rel="stylesheet" href="./../views/lib/css/grey.css" />
+<link rel="stylesheet" href="./../views/lib/css/ionicons.min.css" />
+<!-- respond -->
+<script src="./../views/lib/scripts/respond.min.js"></script>
+<!-- Custom scripts/css -->
+<link rel="stylesheet" href="./../views/css/main.css" />
+<script src="./../views/script/custom.js"></script>
+</head>
+<body>
+	<div id="studentRegistrationDiv" class="studentRegistrationDiv">
+		<div class="studentRegistrationPanel panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">New Student Entry</h4>
+			</div>
+			<div class="panel-body">
+
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#info-tab" data-toggle="tab">Basic
+							Info <i class="fa"></i>
+					</a></li>
+					<li><a href="#address-tab" data-toggle="tab">Residential
+							Info <i class="fa"></i>
+					</a></li>
+					<li><a href="#contact-tab" data-toggle="tab">Contact Info
+							<i class="fa"></i>
+					</a></li>
+					<li><a href="#contact-tab" data-toggle="tab">Academic Info
+							<i class="fa"></i>
+					</a></li>
+					<li><a href="#fileInput-tab" data-toggle="tab">Files Input
+							<i class="fa"></i>
+					</a></li>
+				</ul>
+
+
+
+				<form id="StudentForm" method="post" class="form-horizontal">
+					<div class="tab-content">
+						<div class="tab-pane active" id="info-tab">
+							<div class="row">
+								<div class="col-xs-2">
+									<label for="firstName" class="control-label">First Name
+										:</label>
+								</div>
+								<div class="col-xs-3">
+									<input type="text" class="form-control" name="firstName"
+										placeholder="Enter First Name" />
+								</div>
+								<div class="col-xs-2">
+									<label for="lastName" class="control-label">Last Name :</label>
+								</div>
+								<div class="col-xs-3">
+									<input type="text" class="form-control" name="lastName"
+										placeholder="Enter Last Name" />
+								</div>
+							</div>
+							<br />
+							<div class="row">
+								<div class="col-xs-2">
+									<label for="gurdianName" class="control-label">Gurdian's
+										Name :</label>
+								</div>
+								<div class="col-xs-3">
+									<input type="text" class="form-control" name="gurdianName"
+										placeholder="Enter Gurdian Name" />
+								</div>
+								<div class="col-xs-2">
+									<label for="motherName" class="control-label">Mother's
+										Name :</label>
+								</div>
+								<div class="col-xs-3">
+									<input type="text" class="form-control" name="motherName"
+										placeholder="Enter Mother Name" />
+								</div>
+							</div>
+							<br />
+							<div class="row">
+								<div class="col-xs-2">
+									<label for="dateOfBirth" class="control-label">Date of
+										Birth :</label>
+								</div>
+								<div class="col-xs-3">
+									<div class='input-group date' id='dateOfBirth'>
+										<input type='text' class="form-control" id="dateOfBirth"
+											placeholder="Date of Birth" /> <span
+											class="input-group-addon"> <span
+											class="glyphicon glyphicon-calendar"></span>
+										</span>
+									</div>
+								</div>
+								<div class="col-xs-2">
+									<label for="sex" class="control-label">Sex(M/F) :</label>
+								</div>
+								<div class="col-xs-3">
+									<div class="checkbox">
+										<label> <input type="radio" name="sex"> Male
+										</label> <label> <input type="radio" name="sex">
+											Female
+										</label>
+									</div>
+								</div>
+							</div>
+							<br />
+							<div class="row">
+								<div class="col-xs-2">
+									<label for="religion" class="control-label">Religion :</label>
+								</div>
+								<div class="col-xs-3">
+									<input type="text" class="form-control" name="religion"
+										placeholder="Enter Religion" />
+								</div>
+								<div class="col-xs-2">
+									<label for="caste" class="control-label">Caste :</label>
+								</div>
+								<div class="col-xs-3">
+									<div class="select-div">
+										<select class="form-control" id="caste">
+											<option value="">~Select Caste~</option>
+											<option value="S/C">S/C</option>
+											<option value="S/T">S/T</option>
+											<option value="OBC-A">OBC-A</option>
+											<option value="OBC-B">OBC-B</option>
+											<option value="General">General</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<br />
+							<div class="row">
+								<div class="col-xs-2">
+									<label for="bpl" class="control-label">BPL(Y/N) :</label>
+								</div>
+								<div class="col-xs-3">
+									<div class="checkbox">
+										<label> <input type="radio" name="bpl"> Yes
+										</label> <label> <input type="radio" name="bpl"> No
+										</label>
+									</div>
+								</div>
+								<div class="col-xs-2">
+									<label for="idMark" class="control-label">Identification
+										Mark :</label>
+								</div>
+								<div class="col-xs-3">
+									<input type="text" class="form-control" name="idMark"
+										placeholder="Enter Identification Mark" />
+								</div>
+							</div>
+
+						</div>
+						<div class="tab-pane" id="address-tab">
+							<!-- Permanent address -->
+							<fieldset class="permanentAddress">
+								<legend class="permanentAddress">Permanent Address</legend>
+								<div class="row">
+									<div class="col-xs-2">
+										<label for="addressLine1" class="control-label">Address
+											Line 1 : </label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" name="addressLine1"
+											placeholder="Address Line 1" />
+									</div>
+									<div class="col-xs-2">
+										<label for="addressLine2" class="control-label">Address
+											Line 2 : </label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" name="addressLine2"
+											placeholder="Address Line 2" />
+									</div>
+								</div>
+								<br />
+								<div class="row">
+									<div class="col-xs-2">
+										<label for="streetName" class="control-label">Street :
+										</label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" name="streetName"
+											placeholder="Enter Street Name" />
+									</div>
+									<div class="col-xs-2">
+										<label for="villageOrTown" class="control-label">Village
+											/ Town :</label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" name="villageOrTown"
+											placeholder="Village or Town" />
+									</div>
+								</div>
+								<br />
+								<div class="row">
+									<div class="col-xs-2">
+										<label for="postOffice" class="control-label">Post
+											Office(P.O) : </label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" name="postOffice"
+											placeholder="Enter Post Office" />
+									</div>
+									<div class="col-xs-2">
+										<label for="policeStation" class="control-label">Police
+											Station(P.S) :</label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" name="policeStation"
+											placeholder="Enter Police Station" />
+									</div>
+								</div>
+								<br />
+								<div class="row">
+									<div class="col-xs-2">
+										<label for="district" class="control-label">District :
+										</label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" name="district"
+											placeholder="Enter District" />
+									</div>
+									<div class="col-xs-2">
+										<label for="pincode" class="control-label">Pincode :</label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" name="pincode"
+											placeholder="Enter Pincode" />
+									</div>
+								</div>
+							</fieldset>
+							<br />
+							<div class="checkbox">
+								<label> <input name="sameAddress" type="checkbox"
+									value="1"> &nbsp Current Address Same As Permanent
+									Address
+								</label>
+							</div>
+							<br />
+							<!-- Current Address -->
+							<fieldset class="currentAddress">
+								<legend class="currentAddress">Current Address</legend>
+								<div class="row">
+									<div class="col-xs-2">
+										<label for="addressLine1" class="control-label">Address
+											Line 1 : </label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" name="addressLine1"
+											placeholder="Address Line 1" />
+									</div>
+									<div class="col-xs-2">
+										<label for="addressLine2" class="control-label">Address
+											Line 2 : </label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" name="addressLine2"
+											placeholder="Address Line 2" />
+									</div>
+								</div>
+								<br />
+								<div class="row">
+									<div class="col-xs-2">
+										<label for="streetName" class="control-label">Street :
+										</label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" name="streetName"
+											placeholder="Enter Street Name" />
+									</div>
+									<div class="col-xs-2">
+										<label for="villageOrTown" class="control-label">Village
+											/ Town :</label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" name="villageOrTown"
+											placeholder="Village or Town" />
+									</div>
+								</div>
+								<br />
+								<div class="row">
+									<div class="col-xs-2">
+										<label for="postOffice" class="control-label">Post
+											Office(P.O) : </label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" name="postOffice"
+											placeholder="Enter Post Office" />
+									</div>
+									<div class="col-xs-2">
+										<label for="policeStation" class="control-label">Police
+											Station(P.S) :</label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" name="policeStation"
+											placeholder="Enter Police Station" />
+									</div>
+								</div>
+								<br />
+								<div class="row">
+									<div class="col-xs-2">
+										<label for="district" class="control-label">District :
+										</label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" name="district"
+											placeholder="Enter District" />
+									</div>
+									<div class="col-xs-2">
+										<label for="pincode" class="control-label">Pincode :</label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" name="pincode"
+											placeholder="Enter Pincode" />
+									</div>
+								</div>
+							</fieldset>
+						</div>
+						<div class="tab-pane" id="contact-tab">
+							<div class="row">
+								<div class="col-xs-2">
+									<label for="contactNo" class="control-label">Contact
+										Number : </label>
+								</div>
+								<div class="col-xs-3">
+									<input type="text" class="form-control" name="contactNo"
+										placeholder="Enter Contact Number" />
+								</div>
+								<div class="col-xs-2">
+									<label for="emailID" class="control-label">Email-ID :</label>
+								</div>
+								<div class="col-xs-3">
+									<input type="email" class="form-control" name="emailID"
+										placeholder="Enter Email-ID" />
+								</div>
+							</div>
+
+						</div>
+						<div class="tab-pane" id="fileInput-tab">
+							<div class="row">
+								<div class="col-xs-2">
+									<label class="control-label" for="photo">Select Photo :</label>
+								</div>
+								<div class="col-xs-5">
+									<input id="photo" name="photo" type="file"
+										class="file file-loading" placeholder="Upload your photo"
+										data-allowed-file-extensions='["jpg","jpeg","png"]'>
+								</div>
+							</div>
+							<br />
+							<div class="row">
+								<div class="col-xs-2">
+									<label class="control-label" for="caste">Caste/DOB:</label>
+								</div>
+								<div class="col-xs-5">
+									<input id="caste/dob" name="caste/dob" type="file"
+										class="file file-loading" placeholder="Upload caste / dob"
+										data-allowed-file-extensions='["pdf","doc","docx"]'>
+								</div>
+							</div>
+							<br />
+							<div class="row">
+								<div class="col-xs-2">
+									<label class="control-label" for="certificate">Cerficate:</label>
+								</div>
+								<div class="col-xs-5">
+									<input id="caste/dob" name="certificate" type="file"
+										class="file file-loading" placeholder="Upload Certificate"
+										data-allowed-file-extensions='["pdf","doc","docx"]'>
+								</div>
+							</div>
+							<br />
+							<div class="row">
+								<div class="col-xs-2">
+									<label class="control-label" for="applicationForm">Application Form:</label>
+								</div>
+								<div class="col-xs-5">
+									<input id="caste/dob" name="applicationForm" type="file"
+										class="file file-loading" placeholder="Upload Application Form"
+										data-allowed-file-extensions='["pdf","doc","docx"]'>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br />
+					<hr>
+					<button type="button" class="btn btn-primary">Save</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+var smsApp = angular.module('smsApp', []);
