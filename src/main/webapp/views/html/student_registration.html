@@ -53,8 +53,8 @@
 					<li><a href="#contact-tab" data-toggle="tab">Contact Info
 							<i class="fa"></i>
 					</a></li>
-					<li><a href="#contact-tab" data-toggle="tab">Academic Info
-							<i class="fa"></i>
+					<li><a href="#academic-tab" data-toggle="tab">Academic
+							Info <i class="fa"></i>
 					</a></li>
 					<li><a href="#fileInput-tab" data-toggle="tab">Files Input
 							<i class="fa"></i>
@@ -363,6 +363,86 @@
 							</div>
 
 						</div>
+						<div class="tab-pane" id="academic-tab">
+							<div class="row">
+								<div class="col-xs-2">
+									<label for="AdmissionDate" class="control-label">Admission
+										Date : </label>
+								</div>
+								<div class="col-xs-3">
+									<input type="date" class="form-control" name="AdmissionDate" />
+								</div>
+								<div class="col-xs-2">
+									<label for="class" class="control-label">Class :</label>
+								</div>
+								<div class="col-xs-3">
+									<select class="form-control" id="class" name="class">
+										<option value="">select class</option>
+									</select>
+								</div>
+							</div>
+							<div class="row">
+
+								<div class="col-xs-2">
+									<label for="RollNo" class="control-label">Roll No : </label>
+								</div>
+								<div class="col-xs-3">
+									<input type="text" class="form-control" name="RollNo" />
+								</div>
+
+								<div class="col-xs-2">
+									<label for="Section" class="control-label">Section : </label>
+								</div>
+								<div class="col-xs-3">
+									<select class="form-control" id="section" name="section">
+										<option value="">select section</option>
+									</select>
+								</div>
+							</div>
+							<br/>
+							<div class="row">
+
+								<div class="col-xs-2">
+									<label for="Stream" class="control-label">Stream : </label>
+								</div>
+								<div class="col-xs-3">
+									<select class="form-control" id="stream" name="stream">
+										<option value="">select stream</option>
+									</select>
+								</div>
+								<div class="col-xs-2">
+									<label for="Subject" class="control-label">Subject : </label>
+								</div>
+								<div class="col-xs-3">
+									<select class="form-control" id="subject" name="subject">
+										<option value="">select subject</option>
+									</select>
+								</div>
+							</div>
+							<br/>
+							<div class="row">
+
+								<div class="col-xs-2">
+									<label for="Fees" class="control-label">Fees(E/P) : </label>
+								</div>
+								<div class="col-xs-3">
+									<select class="form-control" id="fees" name="fees">
+										<option value="">select fees</option>
+									</select>
+								</div>
+								<div class="col-xs-2">
+									<label for="FeeAmt" class="control-label">Fees Amt : </label>
+								</div>
+								<div class="col-xs-3">
+									<select class="form-control" id="fees" name="FeeAmt">
+										<option value="">select fee Amt</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+
+
 						<div class="tab-pane" id="fileInput-tab">
 							<div class="row">
 								<div class="col-xs-2">
@@ -399,11 +479,13 @@
 							<br />
 							<div class="row">
 								<div class="col-xs-2">
-									<label class="control-label" for="applicationForm">Application Form:</label>
+									<label class="control-label" for="applicationForm">Application
+										Form:</label>
 								</div>
 								<div class="col-xs-5">
 									<input id="caste/dob" name="applicationForm" type="file"
-										class="file file-loading" placeholder="Upload Application Form"
+										class="file file-loading"
+										placeholder="Upload Application Form"
 										data-allowed-file-extensions='["pdf","doc","docx"]'>
 								</div>
 							</div>
