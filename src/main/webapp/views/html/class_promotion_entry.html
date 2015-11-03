@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html ng-app="smsApp">
+<head>
+<meta charset="ISO-8859-1">
+<title>Class Promotion Entry</title>
+<!-- jQuery -->
+<script src="./../views/lib/jquery/jquery-2.1.4.min.js"></script>
+<!-- bootstrap -->
+<script src="./../views/lib/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="./../views/lib/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="./../views/lib/bootstrap/css/bootstrap-theme.min.css" />
+<!-- bootstrap file input -->
+<script
+	src="./../views/lib/bootstrap-file-input/js/plugins/canvas-to-blob.min.js"></script>
+<script src="./../views/lib/bootstrap-file-input/js/fileinput.min.js"></script>
+<link rel="stylesheet"
+	href="./../views/lib/bootstrap-file-input/css/fileinput.min.css" />
+<!-- moment js -->
+<script src="./../views/lib/scripts/moment-2.10.6.min.js"></script>
+<!-- bootstrap date-time picker -->
+<script
+	src="./../views/lib/scripts/bootstrap.datetimepicker.4.14.30.min.js"></script>
+<link rel="stylesheet"
+	href="./../views/lib/css/bootstrap.datetimepicker.4.14.30.min.css" />
+<!-- icheck -->
+<script src="./../views/lib/scripts/icheck.js"></script>
+<link rel="stylesheet" href="./../views/lib/css/grey.css" />
+<link rel="stylesheet" href="./../views/lib/css/ionicons.min.css" />
+<!-- respond -->
+<script src="./../views/lib/scripts/respond.min.js"></script>
+<!-- angular -->
+<!-- <script src="./../views/lib/angular/angular.min.js"</script> -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<!-- Custom scripts/css -->
+<link rel="stylesheet" href="./../views/css/main.css" />
+<script src="./../views/script/custom.js"></script>
+<script src="./../views/script/angular/app.js"></script>
+<script src="./../views/script/angular/controller/controller.js"></script>
+</head>
+<body ng-controller="smsController">
+	<div id="classPromotionDiv" class="classPromotionDiv">
+		<div class="classPromotionPanel panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Class Promotion Entry :</h4>
+			</div>
+			<div class="panel-body">
+
+				<div class="row">
+					<div class="col-xs-2">
+						<label for="class" class="control-label">Class :</label>
+					</div>
+					<div class="col-xs-3">
+						<div class="select-div" id="class">
+							<select class="form-control" ng-model="selectedClass"
+								ng-options="c for c in classes" id="class" name="class">
+								<option value="">~ Select Class ~</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-xs-1">
+						<button class="btn btn-primary">Submit</button>
+					</div>
+				</div>
+				<br />
+				<div class="row">
+					<div class="col-xs-2">
+						<label for="search" class="control-label">Search Here :</label>
+					</div>
+					<div class="col-xs-3">
+						<div id="custom-search-input">
+							<div class="input-group col-md-12">
+								<input type="text" class="  search-query form-control"
+									placeholder="Search" /> <span class="input-group-btn">
+									<button class="btn btn-danger" type="button">
+										<span class=" glyphicon glyphicon-search"></span>
+									</button>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br />
+				<div class="row">
+
+					<table class="table table-hover ">
+						<thead>
+							<tr>
+								<th align="center">Rank</th>
+								<th align="center">Student Name</th>
+								<th align="center">Roll Number</th>
+								<th align="center">Marks</th>
+								<th align="center">Grade</th>
+								<th align="center">Select Student</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr>
+								<td align="center">1</td>
+								<td align="center">Raten Tata</td>
+								<td align="center">1</td>
+								<td align="center">200</td>
+								<td align="center">A</td>
+								<td align="center"><input type="checkbox"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

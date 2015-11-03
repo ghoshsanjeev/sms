@@ -11,13 +11,13 @@ import javax.servlet.ServletResponse;
 
 public class AuthenticationFilter implements Filter{
 
-	
+	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	
+	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
 			throws IOException, ServletException {
 		if(req.getAttribute("loggedInUser")!=null){
@@ -26,7 +26,7 @@ public class AuthenticationFilter implements Filter{
 		}
 	}
 
-	
+	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
 		

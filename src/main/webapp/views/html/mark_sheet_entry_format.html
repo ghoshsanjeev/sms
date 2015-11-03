@@ -62,10 +62,6 @@
 							</select>
 						</div>
 					</div>
-
-				</div>
-				<br />
-				<div class="row">
 					<div class="col-xs-2">
 						<label for="semester" class="control-label">Select
 							Semester:</label>
@@ -84,15 +80,48 @@
 				</div>
 				<br />
 				<div class="row">
-					<table class="table table-hover ">
+					<div class="col-xs-2">
+						<label for="examination" class="control-label">Select
+							Examination:</label>
+					</div>
+					<div class="col-xs-3">
+						<div class="select-div" id="examination">
+							<select class="form-control" id="examination" name="examination">
+								<option value="">~Select Examination Name~</option>
+								<option value="formative">Formative</option>
+								<option value="summative">Summative</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-xs-2">
+						<label for="class" class="control-label">Class :</label>
+					</div>
+					<div class="col-xs-3">
+						<div class="select-div" id="class">
+							<select class="form-control" ng-model="selectedClass"
+								ng-options="c for c in classes" id="class" name="class">
+								<option value="">~ Select Class ~</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<br />
+				<div class="row">
+					<table class="table table-hover markSheetEntryTable">
 						<thead>
 							<tr>
 								<th align="center">Roll Number</th>
 								<th align="center">Student Name</th>
 								<th align="center">Section</th>
-								<th align="center">Attendance</th>
-								<th align="center">Percentage</th>
-								<th align="center">Overall Percentage</th>
+								<th align="center">Participation/1ST Language</th>
+								<th align="center">Question & Experimentation/2nd Language</th>
+								<th align="center">Interpretation & Application/3rd
+									Language</th>
+								<th align="center">Empathy Co-Operation/Mathematics</th>
+								<th align="center">Aesthetic and Creative
+									Expression/Poribesh O Bigyan</th>
+								<th align="center">Environment & History</th>
+								<th align="center">Environment & Geography</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -100,17 +129,27 @@
 								<td align="center">1</td>
 								<td align="center">Bill Gates</td>
 								<td align="center">Section-A</td>
-								<td align="center">76%</td>
-								<td align="center">70%</td>
-								<td align="center">50%</td>
+								<td align="center">76</td>
+								<td align="center">70</td>
+								<td align="center">50</td>
+								<td align="center">76</td>
+								<td align="center">70</td>
+								<td align="center">50</td>
+								<td align="center">50</td>
+								
 							</tr>
 							<tr>
 								<td align="center">2</td>
 								<td align="center">Narendra Modi</td>
 								<td align="center">Section-B</td>
-								<td align="center">79%</td>
-								<td align="center">78%</td>
-								<td align="center">60%</td>
+								<td align="center">79</td>
+								<td align="center">78</td>
+								<td align="center">60</td>
+								<td align="center">79</td>
+								<td align="center">78</td>
+								<td align="center">60</td>
+								<td align="center">50</td>
+
 							</tr>
 						</tbody>
 					</table>

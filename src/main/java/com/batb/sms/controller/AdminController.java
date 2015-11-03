@@ -14,4 +14,14 @@ public class AdminController {
 		return ViewNames.ADMIN_DOCUMENT_ENTRY;
 	}
 	
+	@RequestMapping(value = "/rankAdjustment")
+	public String getRankAdjustmentPage() {
+		return ViewNames.RANK_ADJUSTMENT_ENTRY;
+	}
+	
+	@RequestMapping(value = "/classPromotion")
+	public String getClassPromotionPage() {
+		return ViewNames.CLASS_PROMOTION_ENTRY;
+	}
+	
 }
