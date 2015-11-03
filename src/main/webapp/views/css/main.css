@@ -1,4 +1,4 @@
-.studentRegistrationDiv {
+.studentRegistrationDiv,.adminDocumentEntryDiv {
 	margin-top: 5em;
 	margin-left: auto;
 	margin-right: auto;
@@ -10,7 +10,7 @@
 	text-align: center;
 }
 
-fieldset.permanentAddress, fieldset.currentAddress {
+fieldset.permanentAddress, fieldset.currentAddress,fieldset.studentCertificateFieldset {
 	border: 1px groove #ddd !important;
 	padding: 0 1.4em 1.4em 1.4em !important;
 	margin: 0 0 1.5em 0 !important;
@@ -18,7 +18,7 @@ fieldset.permanentAddress, fieldset.currentAddress {
 	box-shadow: 0px 0px 0px 0px #000;
 }
 
-legend.permanentAddress, legend.currentAddress {
+legend.permanentAddress, legend.currentAddress,legend.studentCertificateLegend {
 	font-size: 1.2em !important;
 	font-weight: bold !important;
 	text-align: left !important;

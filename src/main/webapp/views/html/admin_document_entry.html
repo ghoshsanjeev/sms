@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Administration Document Entry</title>
+<!-- jQuery -->
+<script src="./../views/lib/jquery/jquery-2.1.4.min.js"></script>
+<!-- bootstrap -->
+<script src="./../views/lib/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="./../views/lib/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="./../views/lib/bootstrap/css/bootstrap-theme.min.css" />
+<!-- bootstrap file input -->
+<script
+	src="./../views/lib/bootstrap-file-input/js/plugins/canvas-to-blob.min.js"></script>
+<script src="./../views/lib/bootstrap-file-input/js/fileinput.min.js"></script>
+<link rel="stylesheet"
+	href="./../views/lib/bootstrap-file-input/css/fileinput.min.css" />
+<!-- moment js -->
+<script src="./../views/lib/scripts/moment-2.10.6.min.js"></script>
+<!-- bootstrap date-time picker -->
+<script
+	src="./../views/lib/scripts/bootstrap.datetimepicker.4.14.30.min.js"></script>
+<link rel="stylesheet"
+	href="./../views/lib/css/bootstrap.datetimepicker.4.14.30.min.css" />
+<!-- icheck -->
+<script src="./../views/lib/scripts/icheck.js"></script>
+<link rel="stylesheet" href="./../views/lib/css/grey.css" />
+<link rel="stylesheet" href="./../views/lib/css/ionicons.min.css" />
+<!-- respond -->
+<script src="./../views/lib/scripts/respond.min.js"></script>
+<!-- angular -->
+<!-- <script src="./../views/lib/angular/angular.min.js"</script> -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<!-- Custom scripts/css -->
+<link rel="stylesheet" href="./../views/css/main.css" />
+<script src="./../views/script/custom.js"></script>
+<script src="./../views/script/angular/app.js"></script>
+<script src="./../views/script/angular/controller/controller.js"></script>
+</head>
+<body>
+
+	<div id="adminDocumentEntryDiv" class="adminDocumentEntryDiv">
+		<div class="adminDocumentEntryPanel panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Administration Document Entry :</h4>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-xs-2">
+						<label for="documentType" class="control-label"> Document
+							Type:</label>
+					</div>
+					<div class="col-xs-3">
+						<div class="select-div" id="documentType">
+							<select class="form-control" id="documentType"
+								name="documentType">
+								<option value="">~ Select Document Type ~</option>
+								<option value="official">Official Document</option>
+								<option value="studentCertificate">Student Certificate
+								</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<br />
+				<fieldset class="studentCertificateFieldset">
+					<legend class="studentCertificateLegend">Student
+						Certificate : </legend>
+					<div class="row">
+						<div class="col-xs-2">
+							<label for="certificateType" class="control-label">
+								Certificate Type:</label>
+						</div>
+						<div class="col-xs-3">
+							<div class="select-div" id="certificateType">
+								<select class="form-control" id="certificateType"
+									name="certificateType">
+									<option value="">~ Select Certificate Type ~</option>
+									<option value="MP_PASS">MP Pass</option>
+									<option value="HS_PASS">HS Pass</option>
+									<option value="SCHOOL_LEAVING">School Leaving</option>
+									<option value="SCHOOL_CERTIFICATE">School Certificate
+									</option>
+									<option value="POLICE_VERIFICATION">Police
+										Verification</option>
+									<option value="TC">TC</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-xs-2">
+							<label for="studentName" class="control-label">Student
+								Name:</label>
+						</div>
+						<div class="col-xs-3">
+							<input type="text" class="form-control" name="studentName"
+								placeholder="Enter Student Name" />
+						</div>
+						<div class="col-xs-2">
+							<label for="guardianName" class="control-label">Guardian
+								Name:</label>
+						</div>
+						<div class="col-xs-3">
+							<input type="text" class="form-control" name="guardianName"
+								placeholder="Enter Guardian Name" />
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<h3>Student Data will be posted on to the respectative area
+							of a Pre Formated Certificate and displayed here with a complete
+							form.</h3>
+					</div>
+
+				</fieldset>
+				<br />
+				<hr>
+				<center>
+					<button type="button" class="btn btn-primary">Print <span class="glyphicon glyphicon-print"></span></button>
+				</center>
+
+			</div>
+
+		</div>
+	</div>
+
+</body>
+</html>
