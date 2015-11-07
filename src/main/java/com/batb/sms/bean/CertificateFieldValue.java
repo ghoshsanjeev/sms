@@ -5,12 +5,12 @@ import javax.persistence.*;
 
 
 /**
- * The persistent class for the TBL_CERTI_FIELD_VALUES database table.
+ * The persistent class for the _CERTI_FIELD_VALUES database table.
  * 
  */
 @Entity
-@Table(name="TBL_CERTI_FIELD_VALUES")
-@NamedQuery(name="TblCertiFieldValue.findAll", query="SELECT t FROM CertificateFieldValue t")
+@Table(name="_CERTI_FIELD_VALUES")
+@NamedQuery(name="CertiFieldValue.findAll", query="SELECT t FROM CertificateFieldValue t")
 public class CertificateFieldValue implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -20,15 +20,15 @@ public class CertificateFieldValue implements Serializable {
 	@Column(name="FIELD_VALUE")
 	private String fieldValue;
 
-	//bi-directional many-to-one association to TblCertiFieldsReln
+	//bi-directional many-to-one association to CertiFieldsReln
 	@ManyToOne
 	@JoinColumn(name="CERTI_FIELD_RELN")
-	private CertificateFieldRelation tblCertiFieldsReln;
+	private CertificateFieldRelation certificateFieldRelation;
 
-	//bi-directional many-to-one association to TblStudent
+	//bi-directional many-to-one association to Student
 	@ManyToOne
 	@JoinColumn(name="STUDENT")
-	private Student tblStudent;
+	private Student student;
 
 	public CertificateFieldValue() {
 	}
@@ -49,20 +49,20 @@ public class CertificateFieldValue implements Serializable {
 		this.fieldValue = fieldValue;
 	}
 
-	public CertificateFieldRelation getTblCertiFieldsReln() {
-		return this.tblCertiFieldsReln;
+	public CertificateFieldRelation getCertificateFieldRelation() {
+		return this.certificateFieldRelation;
 	}
 
-	public void setTblCertiFieldsReln(CertificateFieldRelation tblCertiFieldsReln) {
-		this.tblCertiFieldsReln = tblCertiFieldsReln;
+	public void setCertificateFieldRelation(CertificateFieldRelation certiFieldsReln) {
+		this.certificateFieldRelation = certiFieldsReln;
 	}
 
-	public Student getTblStudent() {
-		return this.tblStudent;
+	public Student getStudent() {
+		return student;
 	}
 
-	public void setTblStudent(Student tblStudent) {
-		this.tblStudent = tblStudent;
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 
 }

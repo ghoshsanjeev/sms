@@ -25,12 +25,12 @@ public class ClassSubjectRelation implements Serializable {
 	private String subject;
 
 	//bi-directional many-to-one association to TblStdAcaPerfHist
-	@OneToMany(mappedBy="tblClassSubReln")
-	private List<StudentAcademicPreformanceHistory> tblStdAcaPerfHists;
+	@OneToMany(mappedBy="classSubjectRelation")
+	private List<StudentAcademicPreformanceHistory> studentAcademicPreformanceHistorys;
 
 	//bi-directional many-to-one association to TblStdCurrStdPerf
-	@OneToMany(mappedBy="tblClassSubReln")
-	private List<StudentCurrentStandardPerformance> tblStdCurrStdPerfs;
+	@OneToMany(mappedBy="classSubjectRelation")
+	private List<StudentCurrentStandardPerformance> studentCurrentStandardPerformances;
 
 	public ClassSubjectRelation() {
 	}
@@ -59,46 +59,48 @@ public class ClassSubjectRelation implements Serializable {
 		this.subject = subject;
 	}
 
-	public List<StudentAcademicPreformanceHistory> getTblStdAcaPerfHists() {
-		return this.tblStdAcaPerfHists;
-	}
-
-	public void setTblStdAcaPerfHists(List<StudentAcademicPreformanceHistory> tblStdAcaPerfHists) {
-		this.tblStdAcaPerfHists = tblStdAcaPerfHists;
-	}
-
 	public StudentAcademicPreformanceHistory addTblStdAcaPerfHist(StudentAcademicPreformanceHistory tblStdAcaPerfHist) {
-		getTblStdAcaPerfHists().add(tblStdAcaPerfHist);
-		tblStdAcaPerfHist.setTblClassSubReln(this);
+		getStudentAcademicPreformanceHistorys().add(tblStdAcaPerfHist);
+		tblStdAcaPerfHist.setClassSubjectRelation(this);
 
 		return tblStdAcaPerfHist;
 	}
 
 	public StudentAcademicPreformanceHistory removeTblStdAcaPerfHist(StudentAcademicPreformanceHistory tblStdAcaPerfHist) {
-		getTblStdAcaPerfHists().remove(tblStdAcaPerfHist);
-		tblStdAcaPerfHist.setTblClassSubReln(null);
+		getStudentAcademicPreformanceHistorys().remove(tblStdAcaPerfHist);
+		tblStdAcaPerfHist.setClassSubjectRelation(null);
 
 		return tblStdAcaPerfHist;
 	}
 
-	public List<StudentCurrentStandardPerformance> getTblStdCurrStdPerfs() {
-		return this.tblStdCurrStdPerfs;
+	public List<StudentAcademicPreformanceHistory> getStudentAcademicPreformanceHistorys() {
+		return studentAcademicPreformanceHistorys;
 	}
 
-	public void setTblStdCurrStdPerfs(List<StudentCurrentStandardPerformance> tblStdCurrStdPerfs) {
-		this.tblStdCurrStdPerfs = tblStdCurrStdPerfs;
+	public void setStudentAcademicPreformanceHistorys(
+			List<StudentAcademicPreformanceHistory> studentAcademicPreformanceHistorys) {
+		this.studentAcademicPreformanceHistorys = studentAcademicPreformanceHistorys;
+	}
+
+	public List<StudentCurrentStandardPerformance> getStudentCurrentStandardPerformances() {
+		return studentCurrentStandardPerformances;
+	}
+
+	public void setStudentCurrentStandardPerformances(
+			List<StudentCurrentStandardPerformance> studentCurrentStandardPerformances) {
+		this.studentCurrentStandardPerformances = studentCurrentStandardPerformances;
 	}
 
 	public StudentCurrentStandardPerformance addTblStdCurrStdPerf(StudentCurrentStandardPerformance tblStdCurrStdPerf) {
-		getTblStdCurrStdPerfs().add(tblStdCurrStdPerf);
-		tblStdCurrStdPerf.setTblClassSubReln(this);
+		getStudentCurrentStandardPerformances().add(tblStdCurrStdPerf);
+		tblStdCurrStdPerf.setClassSubjectRelation(this);
 
 		return tblStdCurrStdPerf;
 	}
 
 	public StudentCurrentStandardPerformance removeTblStdCurrStdPerf(StudentCurrentStandardPerformance tblStdCurrStdPerf) {
-		getTblStdCurrStdPerfs().remove(tblStdCurrStdPerf);
-		tblStdCurrStdPerf.setTblClassSubReln(null);
+		getStudentCurrentStandardPerformances().remove(tblStdCurrStdPerf);
+		tblStdCurrStdPerf.setClassSubjectRelation(null);
 
 		return tblStdCurrStdPerf;
 	}

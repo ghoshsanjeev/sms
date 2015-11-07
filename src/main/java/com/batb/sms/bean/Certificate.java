@@ -6,12 +6,12 @@ import java.util.List;
 
 
 /**
- * The persistent class for the TBL_CERTIFICATE database table.
+ * The persistent class for the _CERTIFICATE database table.
  * 
  */
 @Entity
-@Table(name="TBL_CERTIFICATE")
-@NamedQuery(name="TblCertificate.findAll", query="SELECT t FROM Certificate t")
+@Table(name="_CERTIFICATE")
+@NamedQuery(name="Certificate.findAll", query="SELECT t FROM Certificate t")
 public class Certificate implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -21,9 +21,9 @@ public class Certificate implements Serializable {
 	@Column(name="CERTI_NAME")
 	private String certiName;
 
-	//bi-directional many-to-one association to TblCertiFieldsReln
-	@OneToMany(mappedBy="tblCertificate")
-	private List<CertificateFieldRelation> tblCertiFieldsRelns;
+	//bi-directional many-to-one association to CertiFieldsReln
+	@OneToMany(mappedBy="certificate")
+	private List<CertificateFieldRelation> certificateFieldRelations;
 
 	public Certificate() {
 	}
@@ -44,26 +44,26 @@ public class Certificate implements Serializable {
 		this.certiName = certiName;
 	}
 
-	public List<CertificateFieldRelation> getTblCertiFieldsRelns() {
-		return this.tblCertiFieldsRelns;
+	public List<CertificateFieldRelation> getCertiFieldsRelns() {
+		return this.certificateFieldRelations;
 	}
 
-	public void setTblCertiFieldsRelns(List<CertificateFieldRelation> tblCertiFieldsRelns) {
-		this.tblCertiFieldsRelns = tblCertiFieldsRelns;
+	public void setCertiFieldsRelns(List<CertificateFieldRelation> CertiFieldsRelns) {
+		this.certificateFieldRelations = CertiFieldsRelns;
 	}
 
-	public CertificateFieldRelation addTblCertiFieldsReln(CertificateFieldRelation tblCertiFieldsReln) {
-		getTblCertiFieldsRelns().add(tblCertiFieldsReln);
-		tblCertiFieldsReln.setTblCertificate(this);
+	public CertificateFieldRelation addCertiFieldsReln(CertificateFieldRelation CertiFieldsReln) {
+		getCertiFieldsRelns().add(CertiFieldsReln);
+		CertiFieldsReln.setCertificate(this);
 
-		return tblCertiFieldsReln;
+		return CertiFieldsReln;
 	}
 
-	public CertificateFieldRelation removeTblCertiFieldsReln(CertificateFieldRelation tblCertiFieldsReln) {
-		getTblCertiFieldsRelns().remove(tblCertiFieldsReln);
-		tblCertiFieldsReln.setTblCertificate(null);
+	public CertificateFieldRelation removeCertiFieldsReln(CertificateFieldRelation CertiFieldsReln) {
+		getCertiFieldsRelns().remove(CertiFieldsReln);
+		CertiFieldsReln.setCertificate(null);
 
-		return tblCertiFieldsReln;
+		return CertiFieldsReln;
 	}
 
 }

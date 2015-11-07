@@ -22,8 +22,8 @@ public class CertificateField implements Serializable {
 	private String fieldName;
 
 	//bi-directional many-to-one association to TblCertiFieldsReln
-	@OneToMany(mappedBy="tblCertiField")
-	private List<CertificateFieldRelation> tblCertiFieldsRelns;
+	@OneToMany(mappedBy="certificateField")
+	private List<CertificateFieldRelation> certificateFieldRelations;
 
 	public CertificateField() {
 	}
@@ -44,24 +44,24 @@ public class CertificateField implements Serializable {
 		this.fieldName = fieldName;
 	}
 
-	public List<CertificateFieldRelation> getTblCertiFieldsRelns() {
-		return this.tblCertiFieldsRelns;
+	public List<CertificateFieldRelation> getCertificateFieldRelations() {
+		return certificateFieldRelations;
 	}
 
-	public void setTblCertiFieldsRelns(List<CertificateFieldRelation> tblCertiFieldsRelns) {
-		this.tblCertiFieldsRelns = tblCertiFieldsRelns;
+	public void setCertificateFieldRelations(List<CertificateFieldRelation> certificateFieldRelations) {
+		this.certificateFieldRelations = certificateFieldRelations;
 	}
 
 	public CertificateFieldRelation addTblCertiFieldsReln(CertificateFieldRelation tblCertiFieldsReln) {
-		getTblCertiFieldsRelns().add(tblCertiFieldsReln);
-		tblCertiFieldsReln.setTblCertiField(this);
+		getCertificateFieldRelations().add(tblCertiFieldsReln);
+		tblCertiFieldsReln.setCertificateField(this);
 
 		return tblCertiFieldsReln;
 	}
 
 	public CertificateFieldRelation removeTblCertiFieldsReln(CertificateFieldRelation tblCertiFieldsReln) {
-		getTblCertiFieldsRelns().remove(tblCertiFieldsReln);
-		tblCertiFieldsReln.setTblCertiField(null);
+		getCertificateFieldRelations().remove(tblCertiFieldsReln);
+		tblCertiFieldsReln.setCertificateField(null);
 
 		return tblCertiFieldsReln;
 	}

@@ -4,37 +4,36 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-
 /**
  * The persistent class for the TBL_STD_CURR_STD database table.
  * 
  */
 @Entity
-@Table(name="TBL_STD_CURR_STD")
-@NamedQuery(name="TblStdCurrStd.findAll", query="SELECT t FROM StudentCurrentStandard t")
+@Table(name = "TBL_STD_CURR_STD")
+@NamedQuery(name = "TblStdCurrStd.findAll", query = "SELECT t FROM StudentCurrentStandard t")
 public class StudentCurrentStandard implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	private String id;
 
-	@Column(name="CLASS")
+	@Column(name = "CLASS")
 	private BigDecimal class_;
 
-	@Column(name="ROLL_NO")
+	@Column(name = "ROLL_NO")
 	private BigDecimal rollNo;
 
 	private String sec;
 
 	private String stream;
 
-	@Column(name="YEAR")
+	@Column(name = "YEAR")
 	private BigDecimal year;
 
-	//bi-directional many-to-one association to TblStudent
+	// bi-directional many-to-one association to TblStudent
 	@ManyToOne
-	@JoinColumn(name="STUDENT")
-	private Student tblStudent;
+	@JoinColumn(name = "STUDENT")
+	private Student student;
 
 	public StudentCurrentStandard() {
 	}
@@ -87,12 +86,12 @@ public class StudentCurrentStandard implements Serializable {
 		this.year = year;
 	}
 
-	public Student getTblStudent() {
-		return this.tblStudent;
+	public Student getStudent() {
+		return this.student;
 	}
 
-	public void setTblStudent(Student tblStudent) {
-		this.tblStudent = tblStudent;
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 
 }

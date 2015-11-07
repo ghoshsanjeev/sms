@@ -6,12 +6,12 @@ import java.math.BigDecimal;
 
 
 /**
- * The persistent class for the TBL_STD_ATTND database table.
+ * The persistent class for the _STD_ATTND database table.
  * 
  */
 @Entity
-@Table(name="TBL_STD_ATTND")
-@NamedQuery(name="TblStdAttnd.findAll", query="SELECT t FROM StudentAttendance t")
+@Table(name="_STD_ATTND")
+@NamedQuery(name="StdAttnd.findAll", query="SELECT t FROM StudentAttendance t")
 public class StudentAttendance implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -20,15 +20,15 @@ public class StudentAttendance implements Serializable {
 
 	private BigDecimal attendance;
 
-	//bi-directional many-to-one association to TblAttndClndr
+	//bi-directional many-to-one association to AttndClndr
 	@ManyToOne
 	@JoinColumn(name="ATT_CAL")
-	private AttendanceCalendar tblAttndClndr;
+	private AttendanceCalendar attendanceCalendar;
 
-	//bi-directional many-to-one association to TblStudent
+	//bi-directional many-to-one association to Student
 	@ManyToOne
 	@JoinColumn(name="STUDENT")
-	private Student tblStudent;
+	private Student student;
 
 	public StudentAttendance() {
 	}
@@ -49,20 +49,20 @@ public class StudentAttendance implements Serializable {
 		this.attendance = attendance;
 	}
 
-	public AttendanceCalendar getTblAttndClndr() {
-		return this.tblAttndClndr;
+	public AttendanceCalendar getAttendanceCalendarr() {
+		return this.attendanceCalendar;
 	}
 
-	public void setTblAttndClndr(AttendanceCalendar tblAttndClndr) {
-		this.tblAttndClndr = tblAttndClndr;
+	public void setAttendanceCalendar(AttendanceCalendar studentAttendance) {
+		this.attendanceCalendar = studentAttendance;
 	}
 
-	public Student getTblStudent() {
-		return this.tblStudent;
+	public Student getStudent() {
+		return this.student;
 	}
 
-	public void setTblStudent(Student tblStudent) {
-		this.tblStudent = tblStudent;
+	public void setStudent(Student Student) {
+		this.student = Student;
 	}
 
 }

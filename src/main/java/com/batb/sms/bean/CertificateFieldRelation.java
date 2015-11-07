@@ -6,31 +6,31 @@ import java.util.List;
 
 
 /**
- * The persistent class for the TBL_CERTI_FIELDS_RELN database table.
+ * The persistent class for the _CERTI_FIELDS_RELN database table.
  * 
  */
 @Entity
-@Table(name="TBL_CERTI_FIELDS_RELN")
-@NamedQuery(name="TblCertiFieldsReln.findAll", query="SELECT t FROM CertificateFieldRelation t")
+@Table(name="_CERTI_FIELDS_RELN")
+@NamedQuery(name="CertiFieldsReln.findAll", query="SELECT t FROM CertificateFieldRelation t")
 public class CertificateFieldRelation implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	private String id;
 
-	//bi-directional many-to-one association to TblCertificate
+	//bi-directional many-to-one association to Certificate
 	@ManyToOne
 	@JoinColumn(name="CERTIFICATE")
-	private Certificate tblCertificate;
+	private Certificate certificate;
 
-	//bi-directional many-to-one association to TblCertiField
+	//bi-directional many-to-one association to CertiField
 	@ManyToOne
 	@JoinColumn(name="CERTI_FIELDS")
-	private CertificateField tblCertiField;
+	private CertificateField certificateField;
 
-	//bi-directional many-to-one association to TblCertiFieldValue
-	@OneToMany(mappedBy="tblCertiFieldsReln")
-	private List<CertificateFieldValue> tblCertiFieldValues;
+	//bi-directional many-to-one association to CertiFieldValue
+	@OneToMany(mappedBy="certificateFieldRelation")
+	private List<CertificateFieldValue> certiFieldValues;
 
 	public CertificateFieldRelation() {
 	}
@@ -43,42 +43,42 @@ public class CertificateFieldRelation implements Serializable {
 		this.id = id;
 	}
 
-	public Certificate getTblCertificate() {
-		return this.tblCertificate;
+	public Certificate getCertificate() {
+		return this.certificate;
 	}
 
-	public void setTblCertificate(Certificate tblCertificate) {
-		this.tblCertificate = tblCertificate;
+	public void setCertificate(Certificate Certificate) {
+		this.certificate = Certificate;
 	}
 
-	public CertificateField getTblCertiField() {
-		return this.tblCertiField;
+	public CertificateField getCertificateField() {
+		return this.certificateField;
 	}
 
-	public void setTblCertiField(CertificateField tblCertiField) {
-		this.tblCertiField = tblCertiField;
+	public void setCertificateField(CertificateField CertiField) {
+		this.certificateField = CertiField;
 	}
 
-	public List<CertificateFieldValue> getTblCertiFieldValues() {
-		return this.tblCertiFieldValues;
+	public List<CertificateFieldValue> getCertiFieldValues() {
+		return this.certiFieldValues;
 	}
 
-	public void setTblCertiFieldValues(List<CertificateFieldValue> tblCertiFieldValues) {
-		this.tblCertiFieldValues = tblCertiFieldValues;
+	public void setCertiFieldValues(List<CertificateFieldValue> CertiFieldValues) {
+		this.certiFieldValues = CertiFieldValues;
 	}
 
-	public CertificateFieldValue addTblCertiFieldValue(CertificateFieldValue tblCertiFieldValue) {
-		getTblCertiFieldValues().add(tblCertiFieldValue);
-		tblCertiFieldValue.setTblCertiFieldsReln(this);
+	public CertificateFieldValue addCertiFieldValue(CertificateFieldValue certiFieldValue) {
+		getCertiFieldValues().add(certiFieldValue);
+		certiFieldValue.setCertificateFieldRelation(this);
 
-		return tblCertiFieldValue;
+		return certiFieldValue;
 	}
 
-	public CertificateFieldValue removeTblCertiFieldValue(CertificateFieldValue tblCertiFieldValue) {
-		getTblCertiFieldValues().remove(tblCertiFieldValue);
-		tblCertiFieldValue.setTblCertiFieldsReln(null);
+	public CertificateFieldValue removeCertiFieldValue(CertificateFieldValue certiFieldValue) {
+		getCertiFieldValues().remove(certiFieldValue);
+		certiFieldValue.setCertificateFieldRelation(null);
 
-		return tblCertiFieldValue;
+		return certiFieldValue;
 	}
 
 }

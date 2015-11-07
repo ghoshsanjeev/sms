@@ -5,12 +5,12 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 /**
- * The persistent class for the TBL_STD_ACA_PERF_HIST database table.
+ * The persistent class for the _STD_ACA_PERF_HIST database table.
  * 
  */
 @Entity
-@Table(name = "TBL_STD_ACA_PERF_HIST")
-@NamedQuery(name = "TblStdAcaPerfHist.findAll", query = "SELECT t FROM StudentAcademicPreformanceHistory t")
+@Table(name = "_STD_ACA_PERF_HIST")
+@NamedQuery(name = "StdAcaPerfHist.findAll", query = "SELECT t FROM StudentAcademicPreformanceHistory t")
 public class StudentAcademicPreformanceHistory implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -28,15 +28,15 @@ public class StudentAcademicPreformanceHistory implements Serializable {
 	@Column(name = "YEAR")
 	private BigDecimal year;
 
-	// bi-directional many-to-one association to TblClassSubReln
+	// bi-directional many-to-one association to ClassSubReln
 	@ManyToOne
 	@JoinColumn(name = "SUB_CODE")
-	private ClassSubjectRelation tblClassSubReln;
+	private ClassSubjectRelation classSubjectRelation;
 
-	// bi-directional many-to-one association to TblStudent
+	// bi-directional many-to-one association to student
 	@ManyToOne
 	@JoinColumn(name = "STUDENT")
-	private Student tblStudent;
+	private Student student;
 
 	public StudentAcademicPreformanceHistory() {
 	}
@@ -89,20 +89,21 @@ public class StudentAcademicPreformanceHistory implements Serializable {
 		this.year = year;
 	}
 
-	public ClassSubjectRelation getTblClassSubReln() {
-		return this.tblClassSubReln;
+
+	public ClassSubjectRelation getClassSubjectRelation() {
+		return classSubjectRelation;
 	}
 
-	public void setTblClassSubReln(ClassSubjectRelation tblClassSubReln) {
-		this.tblClassSubReln = tblClassSubReln;
+	public void setClassSubjectRelation(ClassSubjectRelation classSubjectRelation) {
+		this.classSubjectRelation = classSubjectRelation;
 	}
 
-	public Student getTblStudent() {
-		return this.tblStudent;
+	public Student getStudent() {
+		return this.student;
 	}
 
-	public void setTblStudent(Student tblStudent) {
-		this.tblStudent = tblStudent;
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 
 }

@@ -25,12 +25,12 @@ public class StudentCurrentStandardPerformance implements Serializable {
 	//bi-directional many-to-one association to TblClassSubReln
 	@ManyToOne
 	@JoinColumn(name="SUB_CODE")
-	private ClassSubjectRelation tblClassSubReln;
+	private ClassSubjectRelation classSubjectRelation;
 
 	//bi-directional many-to-one association to TblStudent
 	@ManyToOne
 	@JoinColumn(name="STUDENT")
-	private Student tblStudent;
+	private Student student;
 
 	public StudentCurrentStandardPerformance() {
 	}
@@ -59,20 +59,20 @@ public class StudentCurrentStandardPerformance implements Serializable {
 		this.semester = semester;
 	}
 
-	public ClassSubjectRelation getTblClassSubReln() {
-		return this.tblClassSubReln;
+	public ClassSubjectRelation getClassSubjectRelation() {
+		return classSubjectRelation;
 	}
 
-	public void setTblClassSubReln(ClassSubjectRelation tblClassSubReln) {
-		this.tblClassSubReln = tblClassSubReln;
+	public void setClassSubjectRelation(ClassSubjectRelation classSubjectRelation) {
+		this.classSubjectRelation = classSubjectRelation;
 	}
 
-	public Student getTblStudent() {
-		return this.tblStudent;
+	public Student getStudent() {
+		return this.student;
 	}
 
-	public void setTblStudent(Student tblStudent) {
-		this.tblStudent = tblStudent;
+	public void setStudent(Student tblStudent) {
+		this.student = tblStudent;
 	}
 
 }

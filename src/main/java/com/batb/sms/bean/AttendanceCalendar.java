@@ -7,12 +7,12 @@ import java.util.List;
 
 
 /**
- * The persistent class for the TBL_ATTND_CLNDR database table.
+ * The persistent class for the _ATTND_CLNDR database table.
  * 
  */
 @Entity
-@Table(name="TBL_ATTND_CLNDR")
-@NamedQuery(name="TblAttndClndr.findAll", query="SELECT t FROM AttendanceCalendar t")
+@Table(name="_ATTND_CLNDR")
+@NamedQuery(name="AttndClndr.findAll", query="SELECT t FROM AttendanceCalendar t")
 public class AttendanceCalendar implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -31,9 +31,9 @@ public class AttendanceCalendar implements Serializable {
 	@Column(name="YEAR")
 	private BigDecimal year;
 
-	//bi-directional many-to-one association to TblStdAttnd
-	@OneToMany(mappedBy="tblAttndClndr")
-	private List<StudentAttendance> tblStdAttnds;
+	//bi-directional many-to-one association to StdAttnd
+	@OneToMany(mappedBy="attendanceCalendar")
+	private List<StudentAttendance> studentAttendances;
 
 	public AttendanceCalendar() {
 	}
@@ -78,26 +78,26 @@ public class AttendanceCalendar implements Serializable {
 		this.year = year;
 	}
 
-	public List<StudentAttendance> getTblStdAttnds() {
-		return this.tblStdAttnds;
+	public List<StudentAttendance> getStudentAttendances() {
+		return this.studentAttendances;
 	}
 
-	public void setTblStdAttnds(List<StudentAttendance> tblStdAttnds) {
-		this.tblStdAttnds = tblStdAttnds;
+	public void setStudentAttendances(List<StudentAttendance> studentAttendance) {
+		this.studentAttendances = studentAttendance;
 	}
 
-	public StudentAttendance addTblStdAttnd(StudentAttendance tblStdAttnd) {
-		getTblStdAttnds().add(tblStdAttnd);
-		tblStdAttnd.setTblAttndClndr(this);
+	public StudentAttendance addStudentAttendance(StudentAttendance StdAttnd) {
+		getStudentAttendances().add(StdAttnd);
+		StdAttnd.setAttendanceCalendar(this);
 
-		return tblStdAttnd;
+		return StdAttnd;
 	}
 
-	public StudentAttendance removeTblStdAttnd(StudentAttendance tblStdAttnd) {
-		getTblStdAttnds().remove(tblStdAttnd);
-		tblStdAttnd.setTblAttndClndr(null);
+	public StudentAttendance removeStudentAttendance(StudentAttendance studentAttendance) {
+		getStudentAttendances().remove(studentAttendance);
+		studentAttendance.setAttendanceCalendar(null);
 
-		return tblStdAttnd;
+		return studentAttendance;
 	}
 
 }
