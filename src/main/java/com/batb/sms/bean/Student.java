@@ -136,8 +136,8 @@ public class Student implements Serializable {
 	private List<StudentAttendance> studentAttendances;
 
 	//bi-directional many-to-one association to StdCurrStd
-	@OneToMany(mappedBy="student")
-	private List<StudentCurrentStandard> studentCurrentStandards;
+	@OneToOne(mappedBy="student")
+	private StudentCurrentStandard studentCurrentStandard;
 
 	//bi-directional many-to-one association to StdCurrStdPerf
 	@OneToMany(mappedBy="student")
@@ -510,27 +510,14 @@ public class Student implements Serializable {
 		return StdAttnd;
 	}
 
-	public List<StudentCurrentStandard> getStudentCurrentStandards() {
-		return this.studentCurrentStandards;
+	public StudentCurrentStandard getStudentCurrentStandards() {
+		return this.studentCurrentStandard;
 	}
 
-	public void setStdCurrStds(List<StudentCurrentStandard> StdCurrStds) {
-		this.studentCurrentStandards = StdCurrStds;
+	public void setStdCurrStds(StudentCurrentStandard StdCurrStd) {
+		this.studentCurrentStandard = StdCurrStd;
 	}
 
-	public StudentCurrentStandard addStdCurrStd(StudentCurrentStandard StdCurrStd) {
-		getStudentCurrentStandards().add(StdCurrStd);
-		StdCurrStd.setStudent(this);
-
-		return StdCurrStd;
-	}
-
-	public StudentCurrentStandard removeStdCurrStd(StudentCurrentStandard StdCurrStd) {
-		getStudentCurrentStandards().remove(StdCurrStd);
-		StdCurrStd.setStudent(null);
-
-		return StdCurrStd;
-	}
 
 	public List<StudentCurrentStandardPerformance> getStudentCurrentStandardPerformance() {
 		return this.studentCurrentStandardPerformances;

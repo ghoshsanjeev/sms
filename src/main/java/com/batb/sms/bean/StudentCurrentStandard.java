@@ -31,7 +31,7 @@ public class StudentCurrentStandard implements Serializable {
 	private BigDecimal year;
 
 	// bi-directional many-to-one association to TblStudent
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "STUDENT")
 	private Student student;
 
