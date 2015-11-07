@@ -11,7 +11,7 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="_ATTND_CLNDR")
+@Table(name="TBL_ATTND_CLNDR")
 @NamedQuery(name="AttndClndr.findAll", query="SELECT t FROM AttendanceCalendar t")
 public class AttendanceCalendar implements Serializable {
 	private static final long serialVersionUID = 1L;

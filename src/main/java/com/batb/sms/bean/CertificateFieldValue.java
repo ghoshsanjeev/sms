@@ -9,7 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name="_CERTI_FIELD_VALUES")
+@Table(name="TBL_CERTI_FIELD_VALUES")
 @NamedQuery(name="CertiFieldValue.findAll", query="SELECT t FROM CertificateFieldValue t")
 public class CertificateFieldValue implements Serializable {
 	private static final long serialVersionUID = 1L;

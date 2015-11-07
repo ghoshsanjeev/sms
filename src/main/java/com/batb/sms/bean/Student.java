@@ -12,7 +12,7 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="_STUDENT")
+@Table(name="TBL_STUDENT")
 @NamedQuery(name="Student.findAll", query="SELECT t FROM Student t")
 public class Student implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -70,7 +70,7 @@ public class Student implements Serializable {
 	@Column(name="GUARD_NAME")
 	private String guardName;
 
-	@Column(name="ID Mark")
+	@Column(name="ID_Mark")
 	private String ID_Mark;
 
 	@Column(name="INST_NAME")

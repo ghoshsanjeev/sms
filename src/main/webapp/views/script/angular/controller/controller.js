@@ -1,4 +1,4 @@
-smsApp.controller("smsController", function($scope, $http) {
+smsApp.controller("smsController", function($scope, $http,$q,WebServices) {
 	/* this will be removed later */
 	$scope.monthNames = [ "", "January", "February", "March", "April", "May",
 			"June", "July", "August", "September", "October", "November",
@@ -37,4 +37,59 @@ smsApp.controller("smsController", function($scope, $http) {
 	$scope.classes = getClasses();
 	$scope.selectedMonth = $scope.months[(new Date().getMonth())];
 	// ---------------------------------------------------------------------------
+	$scope.student = {
+		"firstName" : "",
+		"lastName" : "",
+		"sex" : "",
+		"currentAddress" : {
+			"addressLine1" : "",
+			"addressLine2" : "",
+			"streetName" : "",
+			"villageOrTown" : "",
+			"postOffice" : "",
+			"policeStation" : "",
+			"district" : "",
+			"pincode" : ""
+		},
+		"permanentAddress" : {
+			"addressLine1" : "",
+			"addressLine2" : "",
+			"streetName" : "",
+			"villageOrTown" : "",
+			"postOffice" : "",
+			"policeStation" : "",
+			"district" : "",
+			"pincode" : ""
+		},
+		"gurdianName" : "",
+		"motherName" : "",
+		"dateOfBirth" : "",
+		"religion" : "",
+		"caste" : "",
+		"bpl" : "",
+		"idMark" : "",
+		"contactNo" : "",
+		"class_" : "",
+		"rollNo" : "",
+		"stream" : "",
+		"subject" : "",
+		"fees" : "",
+		"feesAmt" : "",
+		"admissionDate" : ""
+	}
+
+	$("#saveButton").click(function() {
+		console.log("button clicked");
+		console.log($scope.student);
+		WebServices._post("./createStudent",$scope.student).then(function(value) {
+			
+		}, function(reason) {
+			
+		}, function(value) {
+			
+		});
+	});// end of on
+	
+	
+
 });// end of controller

@@ -10,7 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="_CERTIFICATE")
+@Table(name="TBL_CERTIFICATE")
 @NamedQuery(name="Certificate.findAll", query="SELECT t FROM Certificate t")
 public class Certificate implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -17,7 +17,6 @@ public class AuthenticationFilter implements Filter{
 		
 	}
 
-	
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
 			throws IOException, ServletException {
 		if(req.getAttribute("loggedInUser")!=null){
@@ -26,7 +25,7 @@ public class AuthenticationFilter implements Filter{
 		}
 	}
 
-	
+
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
 		

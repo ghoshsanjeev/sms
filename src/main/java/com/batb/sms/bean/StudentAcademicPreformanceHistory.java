@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * 
  */
 @Entity
-@Table(name = "_STD_ACA_PERF_HIST")
+@Table(name = "TBL_STD_ACA_PERF_HIST")
 @NamedQuery(name = "StdAcaPerfHist.findAll", query = "SELECT t FROM StudentAcademicPreformanceHistory t")
 public class StudentAcademicPreformanceHistory implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="smsApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,11 +31,18 @@
 <link rel="stylesheet" href="./../views/lib/css/ionicons.min.css" />
 <!-- respond -->
 <script src="./../views/lib/scripts/respond.min.js"></script>
+<!-- angular -->
+<!-- <script src="./../views/lib/angular/angular.min.js"</script> -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 <!-- Custom scripts/css -->
 <link rel="stylesheet" href="./../views/css/main.css" />
 <script src="./../views/script/custom.js"></script>
+<script src="./../views/script/angular/app.js"></script>
+<script src="./../views/script/angular/controller/WebServices.js"></script>
+<script src="./../views/script/angular/controller/controller.js"></script>
 </head>
-<body>
+<body ng-controller="smsController">
 	<div id="studentRegistrationDiv" class="studentRegistrationDiv">
 		<div class="studentRegistrationPanel panel panel-default">
 			<div class="panel-heading">
@@ -73,14 +80,14 @@
 								</div>
 								<div class="col-xs-3">
 									<input type="text" class="form-control" name="firstName"
-										placeholder="Enter First Name" ng-model="student.firstName"/>
+										placeholder="Enter First Name" ng-model="student.firstName" />
 								</div>
 								<div class="col-xs-2">
 									<label for="lastName" class="control-label">Last Name :</label>
 								</div>
 								<div class="col-xs-3">
 									<input type="text" class="form-control" name="lastName"
-										placeholder="Enter Last Name" ng-model="student.lastName"/>
+										placeholder="Enter Last Name" ng-model="student.lastName" />
 								</div>
 							</div>
 							<br />
@@ -91,7 +98,8 @@
 								</div>
 								<div class="col-xs-3">
 									<input type="text" class="form-control" name="gurdianName"
-										placeholder="Enter Gurdian Name" ng-model="student.gurdianName"/>
+										placeholder="Enter Gurdian Name"
+										ng-model="student.gurdianName" />
 								</div>
 								<div class="col-xs-2">
 									<label for="motherName" class="control-label">Mother's
@@ -99,7 +107,7 @@
 								</div>
 								<div class="col-xs-3">
 									<input type="text" class="form-control" name="motherName"
-										placeholder="Enter Mother Name" ng-model="student.motherName"/>
+										placeholder="Enter Mother Name" ng-model="student.motherName" />
 								</div>
 							</div>
 							<br />
@@ -111,8 +119,8 @@
 								<div class="col-xs-3">
 									<div class='input-group date' id='dateOfBirth'>
 										<input type='text' class="form-control" id="dateOfBirth"
-											placeholder="Date of Birth" ng-model="student.dateOfBirth"/> <span
-											class="input-group-addon"> <span
+											placeholder="Date of Birth" ng-model="student.dateOfBirth" />
+										<span class="input-group-addon"> <span
 											class="glyphicon glyphicon-calendar"></span>
 										</span>
 									</div>
@@ -122,9 +130,10 @@
 								</div>
 								<div class="col-xs-3">
 									<div class="checkbox">
-										<label> <input type="radio" name="sex" ng-model="student.sex"> Male
-										</label> <label> <input type="radio" name="sex" ng-model="student.sex">
-											Female
+										<label> <input type="radio" name="sex" value="male"
+											ng-model="student.sex"> Male
+										</label> <label> <input type="radio" name="sex" value="female"
+											ng-model="student.sex"> Female
 										</label>
 									</div>
 								</div>
@@ -136,14 +145,15 @@
 								</div>
 								<div class="col-xs-3">
 									<input type="text" class="form-control" name="religion"
-										placeholder="Enter Religion" ng-model="student.religion"/>
+										placeholder="Enter Religion" ng-model="student.religion" />
 								</div>
 								<div class="col-xs-2">
 									<label for="caste" class="control-label">Caste :</label>
 								</div>
 								<div class="col-xs-3">
 									<div class="select-div">
-										<select class="form-control" id="caste" ng-model="student.caste">
+										<select class="form-control" id="caste"
+											ng-model="student.caste">
 											<option value="">~Select Caste~</option>
 											<option value="S/C">S/C</option>
 											<option value="S/T">S/T</option>
@@ -161,8 +171,10 @@
 								</div>
 								<div class="col-xs-3">
 									<div class="checkbox">
-										<label> <input type="radio" name="bpl" ng-model="student.bpl"> Yes
-										</label> <label> <input type="radio" name="bpl" ng-model="student.bpl"> No
+										<label> <input type="radio" name="bpl" value="true"
+											ng-model="student.bpl"> Yes
+										</label> <label> <input type="radio" name="bpl" value="false"
+											ng-model="student.bpl"> No
 										</label>
 									</div>
 								</div>
@@ -172,7 +184,8 @@
 								</div>
 								<div class="col-xs-3">
 									<input type="text" class="form-control" name="idMark"
-										placeholder="Enter Identification Mark" ng-model="student.idMark"/>
+										placeholder="Enter Identification Mark"
+										ng-model="student.idMark" />
 								</div>
 							</div>
 
@@ -188,7 +201,8 @@
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" name="addressLine1"
-											placeholder="Address Line 1" ng-model="student.permanentAddress.addressLine1"/>
+											placeholder="Address Line 1"
+											ng-model="student.permanentAddress.addressLine1" />
 									</div>
 									<div class="col-xs-2">
 										<label for="addressLine2" class="control-label">Address
@@ -196,7 +210,8 @@
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" name="addressLine2"
-											placeholder="Address Line 2" ng-model="student.permanentAddress.addressLine2"/>
+											placeholder="Address Line 2"
+											ng-model="student.permanentAddress.addressLine2" />
 									</div>
 								</div>
 								<br />
@@ -207,7 +222,8 @@
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" name="streetName"
-											placeholder="Enter Street Name" ng-model="student.permanentAddress.streetName"/>
+											placeholder="Enter Street Name"
+											ng-model="student.permanentAddress.streetName" />
 									</div>
 									<div class="col-xs-2">
 										<label for="villageOrTown" class="control-label">Village
@@ -215,7 +231,8 @@
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" name="villageOrTown"
-											placeholder="Village or Town" ng-model="student.permanentAddress.villageOrTown"/>
+											placeholder="Village or Town"
+											ng-model="student.permanentAddress.villageOrTown" />
 									</div>
 								</div>
 								<br />
@@ -226,7 +243,8 @@
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" name="postOffice"
-											placeholder="Enter Post Office" ng-model="student.permanentAddress.postOffice"/>
+											placeholder="Enter Post Office"
+											ng-model="student.permanentAddress.postOffice" />
 									</div>
 									<div class="col-xs-2">
 										<label for="policeStation" class="control-label">Police
@@ -234,7 +252,8 @@
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" name="policeStation"
-											placeholder="Enter Police Station" ng-model="student.permanentAddress.policeStation"/>
+											placeholder="Enter Police Station"
+											ng-model="student.permanentAddress.policeStation" />
 									</div>
 								</div>
 								<br />
@@ -245,27 +264,29 @@
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" name="district"
-											placeholder="Enter District" ng-model="student.permanentAddress.district"/>
+											placeholder="Enter District"
+											ng-model="student.permanentAddress.district" />
 									</div>
 									<div class="col-xs-2">
 										<label for="pincode" class="control-label">Pincode :</label>
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" name="pincode"
-											placeholder="Enter Pincode" ng-model="student.permanentAddress.pincode"/>
+											placeholder="Enter Pincode"
+											ng-model="student.permanentAddress.pincode" />
 									</div>
 								</div>
 							</fieldset>
 							<br />
 							<div class="checkbox">
 								<label> <input name="sameAddress" type="checkbox"
-									value="1" ng-model="student.sameAddress"> &nbsp Current Address Same As Permanent
-									Address
+									value="1" ng-model="student.sameAddress"> &nbsp Current
+									Address Same As Permanent Address
 								</label>
 							</div>
 							<br />
 							<!-- Current Address -->
-							<fieldset class="currentAddress">
+							<fieldset class="currentAddress" ng-hide="student.sameAddress">
 								<legend class="currentAddress">Current Address</legend>
 								<div class="row">
 									<div class="col-xs-2">
@@ -274,7 +295,8 @@
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" name="addressLine1"
-											placeholder="Address Line 1" ng-model="student.currentAddress.addressLine1"/>
+											placeholder="Address Line 1"
+											ng-model="student.currentAddress.addressLine1" />
 									</div>
 									<div class="col-xs-2">
 										<label for="addressLine2" class="control-label">Address
@@ -282,7 +304,8 @@
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" name="addressLine2"
-											placeholder="Address Line 2" ng-model="student.currentAddress.addressLine2"/>
+											placeholder="Address Line 2"
+											ng-model="student.currentAddress.addressLine2" />
 									</div>
 								</div>
 								<br />
@@ -293,7 +316,8 @@
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" name="streetName"
-											placeholder="Enter Street Name" ng-model="student.currentAddress.streetName"/>
+											placeholder="Enter Street Name"
+											ng-model="student.currentAddress.streetName" />
 									</div>
 									<div class="col-xs-2">
 										<label for="villageOrTown" class="control-label">Village
@@ -301,7 +325,8 @@
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" name="villageOrTown"
-											placeholder="Village or Town" ng-model="student.currentAddress.villageOrTown"/>
+											placeholder="Village or Town"
+											ng-model="student.currentAddress.villageOrTown" />
 									</div>
 								</div>
 								<br />
@@ -312,7 +337,8 @@
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" name="postOffice"
-											placeholder="Enter Post Office" ng-model="student.currentAddress.postOffice"/>
+											placeholder="Enter Post Office"
+											ng-model="student.currentAddress.postOffice" />
 									</div>
 									<div class="col-xs-2">
 										<label for="policeStation" class="control-label">Police
@@ -320,7 +346,8 @@
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" name="policeStation"
-											placeholder="Enter Police Station" ng-model="student.currentAddress.policeStation"/>
+											placeholder="Enter Police Station"
+											ng-model="student.currentAddress.policeStation" />
 									</div>
 								</div>
 								<br />
@@ -331,14 +358,16 @@
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" name="district"
-											placeholder="Enter District" ng-model="student.currentAddress.district"/>
+											placeholder="Enter District"
+											ng-model="student.currentAddress.district" />
 									</div>
 									<div class="col-xs-2">
 										<label for="pincode" class="control-label">Pincode :</label>
 									</div>
 									<div class="col-xs-3">
 										<input type="text" class="form-control" name="pincode"
-											placeholder="Enter Pincode" ng-model="student.currentAddress.pincode"/>
+											placeholder="Enter Pincode"
+											ng-model="student.currentAddress.pincode" />
 									</div>
 								</div>
 							</fieldset>
@@ -351,14 +380,16 @@
 								</div>
 								<div class="col-xs-3">
 									<input type="text" class="form-control" name="contactNo"
-										placeholder="Enter Contact Number" ng-model="student.currentAddress.contactNo"/>
+										placeholder="Enter Contact Number"
+										ng-model="student.currentAddress.contactNo" />
 								</div>
 								<div class="col-xs-2">
 									<label for="emailID" class="control-label">Email-ID :</label>
 								</div>
 								<div class="col-xs-3">
 									<input type="email" class="form-control" name="emailID"
-										placeholder="Enter Email-ID" ng-model="student.currentAddress.emailID"/>
+										placeholder="Enter Email-ID"
+										ng-model="student.currentAddress.emailID" />
 								</div>
 							</div>
 
@@ -370,44 +401,65 @@
 										Date : </label>
 								</div>
 								<div class="col-xs-3">
-									<input type="date" class="form-control" name="AdmissionDate" ng-model="student.AdmissionDate"/>
+									<div class="input-group date" id="AdmissionDate">
+										<input type="date" class="form-control" id="AdmissionDate"
+											name="AdmissionDate" ng-model="student.AdmissionDate"
+											placeholder="Enter Admission Date" /><span
+											class="input-group-addon"> <span
+											class="glyphicon glyphicon-calendar"></span>
+										</span>
+									</div>
 								</div>
 								<div class="col-xs-2">
 									<label for="class" class="control-label">Class :</label>
 								</div>
 								<div class="col-xs-3">
-									<select class="form-control" id="class" name="class" ng-model="student.class_">
-										<option value="">select class</option>
-									</select>
+									<div class="select-div" id="class">
+										<select class="form-control" ng-model="selectedClass"
+											ng-options="c for c in classes" id="class" name="class">
+											<option value="">~ Select Class ~</option>
+										</select>
+									</div>
 								</div>
 							</div>
-							<br/>
+							<br />
 							<div class="row">
 
 								<div class="col-xs-2">
 									<label for="RollNo" class="control-label">Roll No : </label>
 								</div>
 								<div class="col-xs-3">
-									<input type="text" class="form-control" name="RollNo" ng-model="student.RollNo"/>
+									<input type="text" class="form-control" name="RollNo"
+										ng-model="student.RollNo" />
 								</div>
 
 								<div class="col-xs-2">
 									<label for="Section" class="control-label">Section : </label>
 								</div>
 								<div class="col-xs-3">
-									<select class="form-control" id="section" name="section" ng-model="student.section">
-										<option value="">select section</option>
-									</select>
+									<div class="select-div" id="section">
+										<select class="form-control" id="section" name="section"
+											ng-model="student.section">
+											<option value="">~Select Section~</option>
+											<option value="A">Secion-A</option>
+											<option value="B">Secion-B</option>
+											<option value="C">Secion-C</option>
+											<option value="D">Secion-D</option>
+											<option value="E">Secion-E</option>
+										</select>
+									</div>
 								</div>
 							</div>
-							<br/>
-							<div class="row">
+							<br />
+							<div class="row"
+								ng-show="selectedClass=='11' || selectedClass=='12'">
 
 								<div class="col-xs-2">
 									<label for="Stream" class="control-label">Stream : </label>
 								</div>
 								<div class="col-xs-3">
-									<select class="form-control" id="stream" name="stream" ng-model="student.stream">
+									<select class="form-control" id="stream" name="stream"
+										ng-model="student.stream">
 										<option value="">select stream</option>
 									</select>
 								</div>
@@ -415,19 +467,21 @@
 									<label for="Subject" class="control-label">Subject : </label>
 								</div>
 								<div class="col-xs-3">
-									<select class="form-control" id="subject" name="subject" ng-model="student.subject">
+									<select class="form-control" id="subject" name="subject"
+										ng-model="student.subject">
 										<option value="">select subject</option>
 									</select>
 								</div>
 							</div>
-							<br/>
+							<br ng-show="selectedClass=='11' || selectedClass=='12'"/>
 							<div class="row">
 
 								<div class="col-xs-2">
 									<label for="Fees" class="control-label">Fees(E/P) : </label>
 								</div>
 								<div class="col-xs-3">
-									<select class="form-control" id="fees" name="fees" ng-model="student.fees">
+									<select class="form-control" id="fees" name="fees"
+										ng-model="student.fees">
 										<option value="">select fees</option>
 									</select>
 								</div>
@@ -435,7 +489,8 @@
 									<label for="FeeAmt" class="control-label">Fees Amt : </label>
 								</div>
 								<div class="col-xs-3">
-									<select class="form-control" id="fees" name="FeeAmt" ng-model="student.FeeAmt">
+									<select class="form-control" id="fees" name="FeeAmt"
+										ng-model="student.FeeAmt">
 										<option value="">select fee Amt</option>
 									</select>
 								</div>
@@ -494,7 +549,7 @@
 					</div>
 					<br />
 					<hr>
-					<button type="button" class="btn btn-primary">Save</button>
+					<button type="button" class="btn btn-primary" id="saveButton">Save</button>
 				</form>
 			</div>
 		</div>
