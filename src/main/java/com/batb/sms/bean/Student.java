@@ -70,7 +70,7 @@ public class Student implements Serializable {
 	@Column(name="GUARD_NAME")
 	private String guardName;
 
-	@Column(name="ID Mark")
+	@Column(name="ID_Mark")
 	private String ID_Mark;
 
 	@Column(name="INST_NAME")

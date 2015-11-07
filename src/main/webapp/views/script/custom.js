@@ -1,15 +1,17 @@
 $(document).ready(function(e) {
-	// Fancy Check box
+	/*// Fancy Check box
 	$('input').iCheck({
 		checkboxClass : 'icheckbox_minimal-grey',
 		radioClass : 'iradio_minimal-grey',
 		increaseArea : '20%' // optional
 	});
-	
-	$('#dateOfBirth').datetimepicker({
+	*/
+	$('#dateOfBirth,#AdmissionDate').datetimepicker({
 		format : "DD/MM/YYYY",
 		useCurrent : false
 	});
+	
+	AdmissionDate
 	
 	
 });// end of ready
