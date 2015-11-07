@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   		http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/security 
+			http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<!-- This is where we configure Spring-Security -->
+	<security:http use-expressions="true" access-denied-page="/api/denied">
+
+		<security:intercept-url pattern="/api/login"
+			access="permitAll" />
+		<security:intercept-url pattern="/api/*"
+			access="hasRole('ROLE_project-tougou-PMO-users')" />
+		<security:intercept-url pattern="/api/admin"
+			access="hasRole('ROLE_jira-administrators')" />
+		<security:form-login login-page="/api/login"
+			authentication-failure-url="/api/login?error=true"
+			default-target-url="/api/dashboard/mydashboard" />
+
+		<security:logout logout-success-url="/api/login"
+			invalidate-session="true" delete-cookies="true" />
+
+		<!-- <security:logout invalidate-session="true" logout-success-url="/krams/auth/login" 
+			logout-url="/krams/auth/logout"/> -->
+
+	</security:http>
+	<security:global-method-security
+		secured-annotations="enabled" pre-post-annotations="enabled"></security:global-method-security>
+
+
+	<security:authentication-manager alias="authenticationManager"
+		erase-credentials="false">
+		<security:authentication-provider
+			ref="jiraAuthenticationProvider" />
+	</security:authentication-manager>
+</beans>
