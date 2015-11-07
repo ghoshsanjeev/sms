@@ -2,6 +2,7 @@ package com.batb.sms.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.batb.sms.constant.ViewNames;
 
@@ -23,6 +24,17 @@ public class StudentController {
 	public String getMarkSheetEntryPage() {
 		return ViewNames.MARK_SHEET_ENTRY;
 	}
+	
+	@RequestMapping(value = "/markSheetHS")
+	public String getMarkSheetHSPage() {
+		return ViewNames.MARK_SHEET_HS;
+	}
+	
+	@RequestMapping(value = "/markSheetM")
+	public String getMarkSheetMPage() {
+		return ViewNames.MARK_SHEET_M;
+	}
+	
 	
 	
 }

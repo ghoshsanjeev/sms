@@ -9,4 +9,6 @@ public interface ViewNames {
 	String ADMIN_DOCUMENT_ENTRY = "admin_document_entry";
 	String RANK_ADJUSTMENT_ENTRY="rank_adjustment_entry";
 	String CLASS_PROMOTION_ENTRY="class_promotion_entry";
+	String MARK_SHEET_HS="mark_sheet_hs";
+	String MARK_SHEET_M="mark_sheet_m";
 }
