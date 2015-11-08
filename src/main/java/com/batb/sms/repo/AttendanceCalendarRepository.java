@@ -1,4 +1,4 @@
-package com.batb.sms.repo;
+/*package com.batb.sms.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,3 +13,4 @@ public interface AttendanceCalendarRepository extends JpaRepository<AttendanceCa
 	@Query("SELECT a from AttendanceCalendar a where a.moth=:month and a.year=:year")
 	AttendanceCalendar getByMonthYear(@Param("month")String month,@Param("year")int year);
 }
+*/

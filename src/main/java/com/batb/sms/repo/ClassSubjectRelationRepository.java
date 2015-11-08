@@ -1,4 +1,4 @@
-package com.batb.sms.repo;
+/*package com.batb.sms.repo;
 
 import java.util.List;
 
@@ -12,3 +12,4 @@ public interface ClassSubjectRelationRepository extends JpaRepository<ClassSubje
 
 	List<ClassSubjectRelation> getByClass_(int class_);
 }
+*/
