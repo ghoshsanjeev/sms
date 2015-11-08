@@ -1,4 +1,5 @@
-smsApp.controller("smsController", function($scope, $http,$q,WebServices) {
+smsApp.controller("smsController", function($scope, $timeout, $http, $q,
+		WebServices) {
 	/* this will be removed later */
 	$scope.monthNames = [ "", "January", "February", "March", "April", "May",
 			"June", "July", "August", "September", "October", "November",
@@ -38,6 +39,7 @@ smsApp.controller("smsController", function($scope, $http,$q,WebServices) {
 	$scope.selectedMonth = $scope.months[(new Date().getMonth())];
 	// ---------------------------------------------------------------------------
 	$scope.student = {
+		"studentType" : "",
 		"firstName" : "",
 		"lastName" : "",
 		"sex" : "",
@@ -69,27 +71,54 @@ smsApp.controller("smsController", function($scope, $http,$q,WebServices) {
 		"bpl" : "",
 		"idMark" : "",
 		"contactNo" : "",
-		"class_" : "",
+		"class_" : "6",
 		"rollNo" : "",
+		"section" : 'A',
 		"stream" : "",
 		"subject" : "",
 		"fees" : "",
 		"feesAmt" : "",
+		"emailID" : "",
+		"yearOfPassing" : "",
+		"remark" : "",
 		"admissionDate" : ""
 	}
 
-	$("#saveButton").click(function() {
-		console.log("button clicked");
-		console.log($scope.student);
-		WebServices._post("./createStudent",$scope.student).then(function(value) {
-			
+	$('#dateOfBirth,#AdmissionDate').on(
+			"dp.change",
+			function(e) {
+				$scope.student.dateOfBirth = $('#dateOfBirth,#AdmissionDate')
+						.data().date;
+				$timeout(function() {
+					$scope.$apply();
+				});
+			});
+	$("select[id='class'],select[id='section']").on('change',function(){
+		WebServices._post("./getRollNo",$scope.student).then(function(value) {
+			$scope.student.rollNo = value.data.rollNo;
+			$timeout(function() {
+				$scope.$apply();
+			});
 		}, function(reason) {
-			
+
 		}, function(value) {
-			
+
 		});
-	});// end of on
+	});
 	
-	
+
+	$("#saveButton").click(
+			function() {
+				console.log("button clicked");
+				console.log($scope.student);
+				WebServices._post("./createStudent", $scope.student).then(
+						function(value) {
+
+						}, function(reason) {
+
+						}, function(value) {
+
+						});
+			});// end of on
 
 });// end of controller

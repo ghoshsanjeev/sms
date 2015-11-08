@@ -1,146 +1,153 @@
 package com.batb.sms.bean;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * The persistent class for the _STUDENT database table.
  * 
  */
 @Entity
-@Table(name="TBL_STUDENT")
-@NamedQuery(name="Student.findAll", query="SELECT t FROM Student t")
+@Table(name = "TBL_STUDENT")
+@NamedQuery(name = "Student.findAll", query = "SELECT t FROM Student t")
 public class Student implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	private String id;
 
-	@Column(name="ADD_DISTRICT")
+	@Column(name = "ADD_DISTRICT")
 	private String addDistrict;
 
-	@Column(name="ADD_PIN")
+	@Column(name = "ADD_PIN")
 	private BigDecimal addPin;
 
-	@Column(name="ADD_PO")
+	@Column(name = "ADD_PO")
 	private String addPo;
 
-	@Column(name="ADD_PS")
+	@Column(name = "ADD_PS")
 	private String addPs;
 
-	@Column(name="ADD_VILL")
+	@Column(name = "ADD_VILL")
 	private String addVill;
 
-	@Column(name="ADM_CLASS")
+	@Column(name = "ADM_CLASS")
 	private BigDecimal admClass;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="ADM_DATE")
+	@Column(name = "ADM_DATE")
 	private Date admDate;
 
-	@Column(name="ADM_SEC")
+	@Column(name = "ADM_SEC")
 	private String admSec;
 
-	@Column(name="BORAD_NAME")
+	@Column(name = "BORAD_NAME")
 	private String boradName;
 
 	private String bpl;
 
 	private String caste;
 
-	@Column(name="CONT_NO")
+	@Column(name = "CONT_NO")
 	private BigDecimal contNo;
 
 	@Temporal(TemporalType.DATE)
 	private Date dob;
 
-	@Column(name="FEE_AMT")
+	@Column(name = "FEE_AMT")
 	private BigDecimal feeAmt;
 
-	@Column(name="FEES_E_P")
+	@Column(name = "FEES_E_P")
 	private String feesEP;
 
-	@Column(name="GRADE_MP_HS")
+	@Column(name = "GRADE_MP_HS")
 	private String gradeMpHs;
 
-	@Column(name="GUARD_NAME")
+	@Column(name = "GUARD_NAME")
 	private String guardName;
 
-	@Column(name="ID_Mark")
+	@Column(name = "ID_Mark")
 	private String ID_Mark;
 
-	@Column(name="INST_NAME")
+	@Column(name = "INST_NAME")
 	private String instName;
 
-	@Column(name="LAST_CLASS")
+	@Column(name = "LAST_CLASS")
 	private BigDecimal lastClass;
 
-	@Column(name="ML_STATUS")
+	@Column(name = "ML_STATUS")
 	private String mlStatus;
 
-	@Column(name="MO_MP_HS")
+	@Column(name = "MO_MP_HS")
 	private BigDecimal moMpHs;
 
-	@Column(name="MOTH_NAME")
+	@Column(name = "MOTH_NAME")
 	private String mothName;
 
-	@Column(name="MRK_LAST_CLASS")
+	@Column(name = "MRK_LAST_CLASS")
 	private BigDecimal mrkLastClass;
 
-	@Column(name="PRF_APP_FORM")
+	@Column(name = "PRF_APP_FORM")
 	private String prfAppForm;
 
-	@Column(name="PRF_CERTI")
+	@Column(name = "PRF_CERTI")
 	private String prfCerti;
 
-	@Column(name="PRF_DOB")
+	@Column(name = "PRF_DOB")
 	private String prfDob;
 
-	@Column(name="PRF_PHOTO")
+	@Column(name = "PRF_PHOTO")
 	private String prfPhoto;
 
-	@Column(name="R_NO")
+	@Column(name = "R_NO")
 	private BigDecimal rNo;
 
 	private String religion;
 
 	private String sex;
 
-	@Column(name="SL_NO")
+	@Column(name = "SL_NO")
 	private BigDecimal slNo;
 
-	@Column(name="STD_ROLL_NO")
+	@Column(name = "STD_ROLL_NO")
 	private BigDecimal stdRollNo;
 
-	@Column(name="STDNT_NAME")
+	@Column(name = "STDNT_NAME")
 	private String stdntName;
 
 	private String streem;
 
 	private String subject;
 
-	//bi-directional many-to-one association to CertiFieldValue
-	@OneToMany(mappedBy="student")
+	// bi-directional many-to-one association to CertiFieldValue
+	@OneToMany(mappedBy = "student")
 	private List<CertificateFieldValue> certificateFieldValues;
 
-	//bi-directional many-to-one association to StdAcaPerfHist
-	@OneToMany(mappedBy="student")
+	// bi-directional many-to-one association to StdAcaPerfHist
+	@OneToMany(mappedBy = "student")
 	private List<StudentAcademicPreformanceHistory> studentAcademicPreformanceHistorys;
 
-	//bi-directional many-to-one association to StdAttnd
-	@OneToMany(mappedBy="student")
+	// bi-directional many-to-one association to StdAttnd
+	@OneToMany(mappedBy = "student")
 	private List<StudentAttendance> studentAttendances;
 
-	//bi-directional many-to-one association to StdCurrStd
-	@OneToMany(mappedBy="student")
+	// bi-directional many-to-one association to StdCurrStd
+	@OneToMany(mappedBy = "student")
 	private List<StudentCurrentStandard> studentCurrentStandards;
 
-	//bi-directional many-to-one association to StdCurrStdPerf
-	@OneToMany(mappedBy="student")
+	// bi-directional many-to-one association to StdCurrStdPerf
+	@OneToMany(mappedBy = "student")
 	private List<StudentCurrentStandardPerformance> studentCurrentStandardPerformances;
 
 	public Student() {
@@ -472,22 +479,22 @@ public class Student implements Serializable {
 		this.studentAcademicPreformanceHistorys = StdAcaPerfHists;
 	}
 
-	public StudentAcademicPreformanceHistory addStudentAcademicPreformanceHistory(StudentAcademicPreformanceHistory StdAcaPerfHist) {
+	public StudentAcademicPreformanceHistory addStudentAcademicPreformanceHistory(
+			StudentAcademicPreformanceHistory StdAcaPerfHist) {
 		getStudentAcademicPreformanceHistory().add(StdAcaPerfHist);
 		StdAcaPerfHist.setStudent(this);
 
 		return StdAcaPerfHist;
 	}
 
-	public StudentAcademicPreformanceHistory removeStudentAcademicPreformanceHistory(StudentAcademicPreformanceHistory StdAcaPerfHist) {
+	public StudentAcademicPreformanceHistory removeStudentAcademicPreformanceHistory(
+			StudentAcademicPreformanceHistory StdAcaPerfHist) {
 		getStudentAcademicPreformanceHistory().remove(StdAcaPerfHist);
 		StdAcaPerfHist.setStudent(null);
 
 		return StdAcaPerfHist;
 	}
 
-	
-	
 	public List<StudentAttendance> getStudentAttendance() {
 		return this.studentAttendances;
 	}
@@ -540,7 +547,8 @@ public class Student implements Serializable {
 		this.studentCurrentStandardPerformances = StdCurrStdPerfs;
 	}
 
-	public StudentCurrentStandardPerformance addStudentCurrentStandardPerformance(StudentCurrentStandardPerformance StdCurrStdPerf) {
+	public StudentCurrentStandardPerformance addStudentCurrentStandardPerformance(
+			StudentCurrentStandardPerformance StdCurrStdPerf) {
 		getStudentCurrentStandardPerformance().add(StdCurrStdPerf);
 		StdCurrStdPerf.setStudent(this);
 

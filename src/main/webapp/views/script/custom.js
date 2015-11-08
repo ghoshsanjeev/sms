@@ -8,7 +8,7 @@ $(document).ready(function(e) {
 	*/
 	$('#dateOfBirth,#AdmissionDate').datetimepicker({
 		format : "DD/MM/YYYY",
-		useCurrent : false
+		useCurrent : true
 	});
 	
 	AdmissionDate

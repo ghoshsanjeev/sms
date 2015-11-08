@@ -2,16 +2,17 @@ package com.batb.sms.dto;
 
 /**
  * s
+ * 
  * @author Sanjib
  *
  */
 public class StudentDTO {
-
+	private String studentType;
 	private String firstName;
 	private String lastName;
 	private String sex;
-	private AddressDTO currentAddress=new AddressDTO();
-	private AddressDTO permanentAddress=new AddressDTO();
+	private AddressDTO currentAddress = new AddressDTO();
+	private AddressDTO permanentAddress = new AddressDTO();
 	private String gurdianName;
 	private String motherName;
 	private String dateOfBirth;
@@ -22,11 +23,30 @@ public class StudentDTO {
 	private String contactNo;
 	private String AdmissionDate;
 	private String class_;
-	private String rollNo;
+	private int rollNo;
+	private char section;
 	private String stream;
 	private String subject;
 	private String fees;
 	private String feesAmt;
+	private String emailID;
+	private String yearOfPassing;
+	private String remark;
+
+	/**
+	 * @return the section
+	 */
+	public char getSection() {
+		return section;
+	}
+
+	/**
+	 * @param section
+	 *            the section to set
+	 */
+	public void setSection(char section) {
+		this.section = section;
+	}
 
 	/**
 	 * @return the firstName
@@ -256,7 +276,7 @@ public class StudentDTO {
 	/**
 	 * @return the rollNo
 	 */
-	public String getRollNo() {
+	public int getRollNo() {
 		return rollNo;
 	}
 
@@ -264,7 +284,7 @@ public class StudentDTO {
 	 * @param rollNo
 	 *            the rollNo to set
 	 */
-	public void setRollNo(String rollNo) {
+	public void setRollNo(int rollNo) {
 		this.rollNo = rollNo;
 	}
 
@@ -328,19 +348,80 @@ public class StudentDTO {
 		this.feesAmt = feesAmt;
 	}
 
-	/* (non-Javadoc)
+	/**
+	 * @return the emailID
+	 */
+	public String getEmailID() {
+		return emailID;
+	}
+
+	/**
+	 * @param emailID
+	 *            the emailID to set
+	 */
+	public void setEmailID(String emailID) {
+		this.emailID = emailID;
+	}
+
+	/**
+	 * @return the studentType
+	 */
+	public String getStudentType() {
+		return studentType;
+	}
+
+	/**
+	 * @param studentType
+	 *            the studentType to set
+	 */
+	public void setStudentType(String studentType) {
+		this.studentType = studentType;
+	}
+
+	/**
+	 * @return the yearOfPassing
+	 */
+	public String getYearOfPassing() {
+		return yearOfPassing;
+	}
+
+	/**
+	 * @param yearOfPassing
+	 *            the yearOfPassing to set
+	 */
+	public void setYearOfPassing(String yearOfPassing) {
+		this.yearOfPassing = yearOfPassing;
+	}
+
+	/**
+	 * @return the remark
+	 */
+	public String getRemark() {
+		return remark;
+	}
+
+	/**
+	 * @param remark
+	 *            the remark to set
+	 */
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "StudentDTO [firstName=" + firstName + ", lastName=" + lastName + ", sex=" + sex + ", currentAddress="
-				+ currentAddress + ", permanentAddress=" + permanentAddress + ", gurdianName=" + gurdianName
-				+ ", motherName=" + motherName + ", dateOfBirth=" + dateOfBirth + ", religion=" + religion + ", caste="
-				+ caste + ", bpl=" + bpl + ", idMark=" + idMark + ", contactNo=" + contactNo + ", AdmissionDate="
-				+ AdmissionDate + ", class_=" + class_ + ", rollNo=" + rollNo + ", stream=" + stream + ", subject="
-				+ subject + ", fees=" + fees + ", feesAmt=" + feesAmt + "]";
+		return "StudentDTO [studentType=" + studentType + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", sex=" + sex + ", currentAddress=" + currentAddress + ", permanentAddress=" + permanentAddress
+				+ ", gurdianName=" + gurdianName + ", motherName=" + motherName + ", dateOfBirth=" + dateOfBirth
+				+ ", religion=" + religion + ", caste=" + caste + ", bpl=" + bpl + ", idMark=" + idMark + ", contactNo="
+				+ contactNo + ", AdmissionDate=" + AdmissionDate + ", class_=" + class_ + ", rollNo=" + rollNo
+				+ ", stream=" + stream + ", subject=" + subject + ", fees=" + fees + ", feesAmt=" + feesAmt
+				+ ", emailID=" + emailID + ", yearOfPassing=" + yearOfPassing + ", remark=" + remark + "]";
 	}
-	
-	
 
 }

@@ -1,5 +1,8 @@
 package com.batb.sms.controller;
 
+import java.math.BigDecimal;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,10 +11,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.batb.sms.constant.ViewNames;
 import com.batb.sms.dto.StudentDTO;
+import com.batb.sms.repo.StudentRepository;
 
 @Controller
 @RequestMapping("/student")
 public class StudentController {
+
+	@Autowired
+	private StudentRepository repo;
 
 	@RequestMapping(value = "/registration")
 	public String getRegistrationPage() {
@@ -42,12 +49,20 @@ public class StudentController {
 	public @ResponseBody StudentDTO getStudentDTOSchema() {
 		return new StudentDTO();
 	}
-	
-	@RequestMapping(value="/createStudent",method=RequestMethod.POST)
-	public @ResponseBody boolean createStudent(@RequestBody StudentDTO studentDTO){
+
+	@RequestMapping(value = "/createStudent", method = RequestMethod.POST)
+	public @ResponseBody boolean createStudent(@RequestBody StudentDTO studentDTO) {
 		System.out.println(studentDTO);
+		System.out.println(repo.getGeneratedRollNo(6, 'A'));
 		return false;
-		
+
+	}
+
+	@RequestMapping("/getRollNo")
+	public @ResponseBody StudentDTO getRollNo(@RequestBody StudentDTO studentDTO) {
+		studentDTO.setRollNo(
+				repo.getGeneratedRollNo(Integer.parseInt(studentDTO.getClass_()), studentDTO.getSection()).intValue());
+		return studentDTO;
 	}
 
 }

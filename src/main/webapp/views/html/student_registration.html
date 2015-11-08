@@ -49,7 +49,22 @@
 				<h4 class="panel-title">New Student Entry</h4>
 			</div>
 			<div class="panel-body">
-
+				<div class="row">
+					<div class="col-xs-2" style="margin-top: 1em;">
+						<label for="studentType" class="control-label">Student
+							Type :</label>
+					</div>
+					<div class="col-xs-4">
+						<div class="checkbox" id="studentType">
+							<label> <input type="radio" name="studentType"
+								value="new" ng-model="student.studentType"> New Student
+							</label> <label> <input type="radio" name="studentType"
+								value="old" ng-model="student.studentType"> Old Student
+							</label>
+						</div>
+					</div>
+				</div>
+				<br />
 				<ul class="nav nav-tabs">
 					<li class="active"><a href="#info-tab" data-toggle="tab">Basic
 							Info <i class="fa"></i>
@@ -430,7 +445,7 @@
 								</div>
 								<div class="col-xs-3">
 									<input type="text" class="form-control" name="RollNo"
-										ng-model="student.RollNo" />
+										ng-model="student.rollNo" placeholder="Roll No" readonly="readonly" />
 								</div>
 
 								<div class="col-xs-2">
@@ -473,7 +488,7 @@
 									</select>
 								</div>
 							</div>
-							<br ng-show="selectedClass=='11' || selectedClass=='12'"/>
+							<br ng-show="selectedClass=='11' || selectedClass=='12'" />
 							<div class="row">
 
 								<div class="col-xs-2">
