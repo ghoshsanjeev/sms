@@ -12,7 +12,7 @@ public interface StudentRepository extends JpaRepository<Student, Long>, Student
 
     public final static String FIND_STUDENT_BY_CLASS_AND_ROLL = "SELECT s FROM Student s LEFT JOIN s.studentCurrentStandard scs" + " WHERE scs.class_=:class_" + " AND scs.rollNo = :rollNo";
 
-    Student findById(String id);
+    Student getById(String id);
 
     @Query(FIND_STUDENT_BY_CLASS_AND_ROLL)
     Student findByClassAndRoll(@Param("class_") int class_, @Param("rollNo") int rollNo);
