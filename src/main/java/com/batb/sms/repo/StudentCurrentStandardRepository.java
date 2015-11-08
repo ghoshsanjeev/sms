@@ -1,4 +1,4 @@
-package com.batb.sms.repo;
+/*package com.batb.sms.repo;
 
 import java.util.List;
 
@@ -26,3 +26,4 @@ public interface StudentCurrentStandardRepository extends JpaRepository<StudentC
     @Query(FIND_STUDENT_BY_CLASS_AND_ROLL)
     Student getStudentByClassAndRoll(@Param("class_") int class_, @Param("rollNo") int rollNo);
 }
+*/

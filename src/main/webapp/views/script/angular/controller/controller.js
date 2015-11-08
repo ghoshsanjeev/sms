@@ -93,17 +93,25 @@ smsApp.controller("smsController", function($scope, $timeout, $http, $q,
 					$scope.$apply();
 				});
 			});
-	$("select[id='class'],select[id='section']").on('change',function(){
-		WebServices._post("./getRollNo",$scope.student).then(function(value) {
-			$scope.student.rollNo = value.data.rollNo;
-			$timeout(function() {
-				$scope.$apply();
-			});
-		}, function(reason) {
-
-		}, function(value) {
-
+	$("input[name='studentType']:radio").on('change',function () {
+		$scope.student.rollNo="";
+		$timeout(function() {
+			$scope.$apply();
 		});
+	});
+	$("select[id='class'],select[id='section']").on('change',function(){
+		if($scope.student.studentType=="new"){
+			WebServices._post("./getRollNo",$scope.student).then(function(value) {
+				$scope.student.rollNo = value.data.rollNo;
+				$timeout(function() {
+					$scope.$apply();
+				});
+			}, function(reason) {
+
+			}, function(value) {
+
+			});
+		}
 	});
 	
 

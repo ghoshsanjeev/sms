@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html ng-app="smsApp">
 <head>
@@ -468,48 +467,126 @@
 								</div>
 							</div>
 							<br />
-							<div class="row"
-								ng-show="selectedClass=='11' || selectedClass=='12'">
+							<div class="row" ng-show="selectedClass>10">
 
 								<div class="col-xs-2">
 									<label for="Stream" class="control-label">Stream : </label>
 								</div>
 								<div class="col-xs-3">
-									<select class="form-control" id="stream" name="stream"
-										ng-model="student.stream">
-										<option value="">select stream</option>
-									</select>
+									<div class="select-div" id="stream">
+										<select class="form-control" id="stream" name="stream"
+											ng-model="student.stream">
+											<option value="">~Select Stream~</option>
+											<option value="arts">Arts</option>
+											<option value="commerce">Commerce</option>
+											<option value="science">Science</option>
+										</select>
+									</div>
 								</div>
 								<div class="col-xs-2">
 									<label for="Subject" class="control-label">Subject : </label>
 								</div>
 								<div class="col-xs-3">
-									<select class="form-control" id="subject" name="subject"
-										ng-model="student.subject">
-										<option value="">select subject</option>
-									</select>
+									<div class="select-div" id="subject">
+										<select class="form-control" id="subject" name="subject"
+											ng-model="student.subject">
+											<option value="">~Select Subject~</option>
+										</select>
+									</div>
 								</div>
 							</div>
-							<br ng-show="selectedClass=='11' || selectedClass=='12'" />
+							<br ng-show="selectedClass>10" />
 							<div class="row">
 
 								<div class="col-xs-2">
 									<label for="Fees" class="control-label">Fees(E/P) : </label>
 								</div>
 								<div class="col-xs-3">
-									<select class="form-control" id="fees" name="fees"
-										ng-model="student.fees">
-										<option value="">select fees</option>
-									</select>
+									<div class="select-div" id="fees">
+										<select class="form-control" id="fees" name="fees"
+											ng-model="student.fees">
+											<option value="">~Select Fees Type~</option>
+											<option value="E">Exempt Category (E)</option>
+											<option value="P">Pay Category (P)</option>
+										</select>
+									</div>
 								</div>
 								<div class="col-xs-2">
-									<label for="FeeAmt" class="control-label">Fees Amt : </label>
+									<label for="feesAmt" class="control-label">Fees Amt : </label>
 								</div>
 								<div class="col-xs-3">
-									<select class="form-control" id="fees" name="FeeAmt"
-										ng-model="student.FeeAmt">
-										<option value="">select fee Amt</option>
-									</select>
+									<input type="text" class="form-control" id="feesAmt"
+										name="feesAmt" ng-model="student.feesAmt"
+										placeholder="Enter Fees Amount" />
+
+								</div>
+							</div>
+							<br />
+							<div class="row" ng-show="selectedClass>10">
+
+								<div class="col-xs-2">
+									<label for="boardName" class="control-label">Board Name
+										: </label>
+								</div>
+								<div class="col-xs-3">
+									<input type="text" id="boardName" name="boardName"
+										ng-model="student.boardName" class="form-control"
+										placeholder="Enter Board Name" />
+								</div>
+								<div class="col-xs-2">
+									<label for="boardRollNo" class="control-label">Board
+										Roll No : </label>
+								</div>
+								<div class="col-xs-3">
+									<input type="text" id="boardRollNo" name="boardRollNo"
+										ng-model="student.boardRollNo" class="form-control"
+										placeholder="Enter Board Roll No" />
+								</div>
+							</div>
+							<br ng-show="selectedClass>10"/>
+							<div class="row" ng-show="selectedClass>10">
+
+								<div class="col-xs-2">
+									<label for="marksInMP" class="control-label">Marks in
+										MP : </label>
+								</div>
+								<div class="col-xs-3">
+									<input type="text" id="marksInMP" name="marksInMP"
+										ng-model="student.marksInMP" class="form-control"
+										placeholder="Marks Obtained in MP" />
+								</div>
+								<div class="col-xs-2">
+									<label for="gradeInMP" class="control-label">Grade in
+										MP : </label>
+								</div>
+								<div class="col-xs-3">
+									<input type="text" id="gradeInMP" name="gradeInMP"
+										ng-model="student.gradeInMP" class="form-control"
+										placeholder="Grade in MP" />
+								</div>
+							</div>
+							<br ng-show="selectedClass>10"/>
+							<div class="row" ng-show="student.studentType=='old'">
+
+								<div class="col-xs-2">
+									<label for="yearOfPassing" class="control-label">Year
+										of Passing : </label>
+								</div>
+								<div class="col-xs-3">
+									<div class="select-div" id="yearOfPassing">
+										<select class="form-control" ng-model="selectedYear"
+											ng-options="y for y in years" id="yearOfPassing"
+											name="yearOfPassing">
+											<option value="">~ Select Year ~</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-xs-2">
+									<label for="remark" class="control-label">Remark : </label>
+								</div>
+								<div class="col-xs-3">
+									<textarea class="form-control" rows="5" id="remark"
+										style="resize: none"></textarea>
 								</div>
 							</div>
 						</div>
