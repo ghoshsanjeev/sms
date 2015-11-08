@@ -15,5 +15,5 @@ public interface StudentCurrentStandardPerformanceRepository
 
 	@Query("SELECT scsp from StudentCurrentStandardPerformance scsp where scsp.student=:student AND scsp.semester=:semester")
 	List<StudentCurrentStandardPerformance> getByStudentSemester(@Param("student") Student student,
-			@Param("semster") int semester);
+			@Param("semester") int semester);
 }

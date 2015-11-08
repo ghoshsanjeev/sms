@@ -8,8 +8,9 @@ import com.batb.sms.bean.AttendanceCalendar;
 
 public interface AttendanceCalendarRepository extends JpaRepository<AttendanceCalendar, Long> {
 
-	AttendanceCalendar getAttendanceCalendarByClass_(int class_);
-	
-	@Query("SELECT a from AttendanceCalendar a where a.moth=:month and a.year=:year")
-	AttendanceCalendar getByMonthYear(@Param("month")String month,@Param("year")int year);
+    @Query("SELECT ac FROM AttendanceCalendar ac WHERE ac.class_=:class_")
+    AttendanceCalendar getAttendanceCalendarByClass(@Param("class_") int class_);
+
+    @Query("SELECT a from AttendanceCalendar a where a.month=:month and a.year=:year")
+    AttendanceCalendar getByMonthYear(@Param("month") String month, @Param("year") int year);
 }
