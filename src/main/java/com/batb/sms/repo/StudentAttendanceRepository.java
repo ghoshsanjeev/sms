@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.batb.sms.bean.StudentAttendance;
 
-public interface StudentAttendanceRepository extends JpaRepository<StudentAttendance, String> {
+public interface StudentAttendanceRepository extends JpaRepository<StudentAttendance, Long> {
 
 }

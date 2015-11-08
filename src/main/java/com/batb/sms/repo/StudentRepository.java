@@ -1,6 +1,5 @@
 package com.batb.sms.repo;
 
-import java.math.BigDecimal;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,6 +15,6 @@ public interface StudentRepository extends JpaRepository<Student, Long>, Student
     Student findById(String id);
 
     @Query(FIND_STUDENT_BY_CLASS_AND_ROLL)
-    Student findByClassAndRoll(@Param("class_") BigDecimal class_, @Param("rollNo") BigDecimal rollNo);
+    Student findByClassAndRoll(@Param("class_") int class_, @Param("rollNo") int rollNo);
 
 }
