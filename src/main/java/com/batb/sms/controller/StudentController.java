@@ -1,7 +1,5 @@
 package com.batb.sms.controller;
 
-import java.math.BigDecimal;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,53 +16,62 @@ import com.batb.sms.services.StudentService;
 @RequestMapping("/student")
 public class StudentController {
 
-    @Autowired
-    private StudentRepository repo;
-    @Autowired
-    private StudentService service;
+	@Autowired
+	private StudentRepository repo;
 
-    @RequestMapping(value = "/registration")
-    public String getRegistrationPage() {
-	return ViewNames.STUDENT_REGISTRATION;
-    }
+	@Autowired
+	private StudentService service;
 
-    @RequestMapping(value = "/attendance")
-    public String getAttendancePage() {
-	return ViewNames.STUDENT_ATTENDANCE;
-    }
+	
 
-    @RequestMapping(value = "/markSheetEntry")
-    public String getMarkSheetEntryPage() {
-	return ViewNames.MARK_SHEET_ENTRY;
-    }
+	@RequestMapping(value = "/registration")
+	public String getRegistrationPage() {
+		return ViewNames.STUDENT_REGISTRATION;
+	}
 
-    @RequestMapping(value = "/markSheetHS")
-    public String getMarkSheetHSPage() {
-	return ViewNames.MARK_SHEET_HS;
-    }
+	@RequestMapping(value = "/attendance")
+	public String getAttendancePage() {
+		return ViewNames.STUDENT_ATTENDANCE;
+	}
 
-    @RequestMapping(value = "/markSheetM")
-    public String getMarkSheetMPage() {
-	return ViewNames.MARK_SHEET_M;
-    }
+	@RequestMapping(value = "/markSheetEntry")
+	public String getMarkSheetEntryPage() {
+		return ViewNames.MARK_SHEET_ENTRY;
+	}
 
-    @RequestMapping(value = "/studentDTO")
-    public @ResponseBody StudentDTO getStudentDTOSchema() {
-	return new StudentDTO();
-    }
+	@RequestMapping(value = "/markSheetHS")
+	public String getMarkSheetHSPage() {
+		return ViewNames.MARK_SHEET_HS;
+	}
 
-    @RequestMapping(value = "/createStudent", method = RequestMethod.POST)
-    public @ResponseBody boolean createStudent(@RequestBody StudentDTO studentDTO) {
-	//TODO: dozer mapping for studentDTO <=> student
-	System.out.println(studentDTO);
-	System.out.println(repo.getGeneratedRollNo(6, 'A'));
-	return false;
-    }
+	@RequestMapping(value = "/markSheetM")
+	public String getMarkSheetMPage() {
+		return ViewNames.MARK_SHEET_M;
+	}
+	
+	@RequestMapping(value = "/renewal")
+	public String getRenewalPage() {
+		return ViewNames.RENEWAL;
+	}
 
-    @RequestMapping("/getRollNo")
-    public @ResponseBody StudentDTO getRollNo(@RequestBody StudentDTO studentDTO) {
-	studentDTO.setRollNo(repo.getGeneratedRollNo(Integer.parseInt(studentDTO.getClass_()), studentDTO.getSection()).intValue());
-	return studentDTO;
-    }
+	@RequestMapping(value = "/studentDTO")
+	public @ResponseBody StudentDTO getStudentDTOSchema() {
+		return new StudentDTO();
+	}
+
+	@RequestMapping(value = "/createStudent", method = RequestMethod.POST)
+	public @ResponseBody boolean createStudent(@RequestBody StudentDTO studentDTO) {
+		// TODO: dozer mapping for studentDTO <=> student
+		System.out.println(studentDTO);
+		System.out.println(repo.getGeneratedRollNo(6, 'A'));
+		return false;
+	}
+
+	@RequestMapping("/getRollNo")
+	public @ResponseBody StudentDTO getRollNo(@RequestBody StudentDTO studentDTO) {
+		studentDTO.setRollNo(
+				repo.getGeneratedRollNo(Integer.parseInt(studentDTO.getClass_()), studentDTO.getSection()).intValue());
+		return studentDTO;
+	}
 
 }
