@@ -6,7 +6,7 @@ $(document).ready(function(e) {
 		increaseArea : '20%' // optional
 	});
 	*/
-	$('#dateOfBirth,#AdmissionDate').datetimepicker({
+	$('#dateOfBirth,#AdmissionDate,#renewalDate').datetimepicker({
 		format : "DD/MM/YYYY",
 		useCurrent : true
 	});

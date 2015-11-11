@@ -12,10 +12,6 @@ smsApp.controller("smsController", function($scope, $timeout, $http, $q,
 		for (var i = currentYear - range; i < currentYear + range; i++) {
 			years.push(i);
 		}
-		/*
-		 * for (var i = 0; i < range + 1; i++){ years.push(currentYear + offset +
-		 * i); }
-		 */
 		return years;
 	}
 	$scope.years = getYears(0, 20);
@@ -40,7 +36,7 @@ smsApp.controller("smsController", function($scope, $timeout, $http, $q,
 	// ---------------------------------------------------------------------------
 	$scope.selectedClass="";
 	$scope.student = {
-		"studentType" : "",
+		"studentType" : "new",
 		"firstName" : "",
 		"lastName" : "",
 		"sex" : "",
