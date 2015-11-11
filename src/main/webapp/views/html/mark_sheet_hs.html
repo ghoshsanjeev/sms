@@ -38,6 +38,7 @@
 <link rel="stylesheet" href="./../views/css/main.css" />
 <script src="./../views/script/custom.js"></script>
 <script src="./../views/script/angular/app.js"></script>
+<script src="./../views/script/angular/controller/WebServices.js"></script>
 <script src="./../views/script/angular/controller/controller.js"></script>
 <style type="text/css">
 .table {
@@ -51,8 +52,16 @@
 	text-overflow: ellipsis;
 }
 </style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#navDiv").load("./../views/html/navigation.html");
+	});//end of ready
+</script>
 </head>
 <body>
+<header>School Management System</header>
+
+<div id="navDiv"></div>
 	<div id="markSheetHSDiv" class="markSheetHSDiv">
 		<div class="markSheetHSPanel panel panel-default">
 			<div class="panel-heading">

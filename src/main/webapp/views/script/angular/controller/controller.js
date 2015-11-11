@@ -38,6 +38,7 @@ smsApp.controller("smsController", function($scope, $timeout, $http, $q,
 	$scope.classes = getClasses();
 	$scope.selectedMonth = $scope.months[(new Date().getMonth())];
 	// ---------------------------------------------------------------------------
+	$scope.selectedClass="";
 	$scope.student = {
 		"studentType" : "",
 		"firstName" : "",
@@ -100,6 +101,10 @@ smsApp.controller("smsController", function($scope, $timeout, $http, $q,
 		});
 	});
 	$("select[id='class'],select[id='section']").on('change',function(){
+		$scope.student.class_=$scope.selectedClass;
+		$timeout(function() {
+			$scope.$apply();
+		});
 		if($scope.student.studentType=="new"){
 			WebServices._post("./getRollNo",$scope.student).then(function(value) {
 				$scope.student.rollNo = value.data.rollNo;
@@ -115,18 +120,21 @@ smsApp.controller("smsController", function($scope, $timeout, $http, $q,
 	});
 	
 
-	$("#saveButton").click(
-			function() {
-				console.log("button clicked");
-				console.log($scope.student);
-				WebServices._post("./createStudent", $scope.student).then(
-						function(value) {
+	$("#saveButton").on('click',function() {
+		console.log("button clicked");
+		console.log($scope.student);
+		WebServices._post("./createStudent", $scope.student).then(
+			function(value) {
+				if(value.data){
+					console.log("Student Record has been created successfully");
+				}else{
+					console.log("Student Record can not be created.")
+				}
+			}, function(reason) {
 
-						}, function(reason) {
+			}, function(value) {
 
-						}, function(value) {
-
-						});
-			});// end of on
+			});//end of post call
+		});// end of on
 
 });// end of controller

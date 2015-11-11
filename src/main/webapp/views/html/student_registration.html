@@ -41,8 +41,15 @@
 <script src="./../views/script/angular/app.js"></script>
 <script src="./../views/script/angular/controller/WebServices.js"></script>
 <script src="./../views/script/angular/controller/controller.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#navDiv").load("./../views/html/navigation.html");
+	});//end of ready
+</script>
 </head>
 <body ng-controller="smsController">
+<header>School Management System</header>
+	<div id="navDiv"></div>
 	<div id="studentRegistrationDiv" class="studentRegistrationDiv">
 		<div class="studentRegistrationPanel panel panel-default">
 			<div class="panel-heading">

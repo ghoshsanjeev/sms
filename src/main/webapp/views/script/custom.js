@@ -11,7 +11,4 @@ $(document).ready(function(e) {
 		useCurrent : true
 	});
 	
-	AdmissionDate
-	
-	
 });// end of ready
