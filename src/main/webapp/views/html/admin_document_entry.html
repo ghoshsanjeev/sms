@@ -40,9 +40,15 @@
 <script src="./../views/script/angular/app.js"></script>
 <script src="./../views/script/angular/controller/WebServices.js"></script>
 <script src="./../views/script/angular/controller/controller.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#navDiv").load("./../views/html/navigation.html");
+	});//end of ready
+</script>
 </head>
 <body>
-
+	<header>School Management System</header>
+	<div id="navDiv"></div>
 	<div id="adminDocumentEntryDiv" class="adminDocumentEntryDiv">
 		<div class="adminDocumentEntryPanel panel panel-default">
 			<div class="panel-heading">
@@ -122,7 +128,9 @@
 				<br />
 				<hr>
 				<center>
-					<button type="button" class="btn btn-primary">Print <span class="glyphicon glyphicon-print"></span></button>
+					<button type="button" class="btn btn-primary">
+						Print <span class="glyphicon glyphicon-print"></span>
+					</button>
 				</center>
 
 			</div>
