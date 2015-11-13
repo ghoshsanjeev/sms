@@ -40,8 +40,15 @@
 <script src="./../views/script/angular/app.js"></script>
 <script src="./../views/script/angular/controller/WebServices.js"></script>
 <script src="./../views/script/angular/controller/controller.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#navDiv").load("./../views/html/navigation.html");
+	});//end of ready
+</script>
 </head>
 <body ng-controller="smsController">
+	<header>School Management System</header>
+	<div id="navDiv"></div>
 	<div id="classPromotionDiv" class="classPromotionDiv">
 		<div class="classPromotionPanel panel panel-default">
 			<div class="panel-heading">
@@ -71,15 +78,9 @@
 						<label for="search" class="control-label">Search Here :</label>
 					</div>
 					<div class="col-xs-3">
-						<div id="custom-search-input">
-							<div class="input-group col-md-12">
-								<input type="text" class="  search-query form-control"
-									placeholder="Search" /> <span class="input-group-btn">
-									<button class="btn btn-danger" type="button">
-										<span class=" glyphicon glyphicon-search"></span>
-									</button>
-								</span>
-							</div>
+						<div class="inner-addon right-addon">
+							<i class="glyphicon glyphicon-search"></i> <input type="text"
+								class="form-control" placeholder="Search" />
 						</div>
 					</div>
 				</div>

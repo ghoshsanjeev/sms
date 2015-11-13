@@ -1,10 +1,162 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="smsApp">
 <head>
 <meta charset="ISO-8859-1">
 <title>Student Renewal</title>
+<!-- jQuery -->
+<script src="./../views/lib/jquery/jquery-2.1.4.min.js"></script>
+<!-- bootstrap -->
+<script src="./../views/lib/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="./../views/lib/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="./../views/lib/bootstrap/css/bootstrap-theme.min.css" />
+<!-- bootstrap file input -->
+<script
+	src="./../views/lib/bootstrap-file-input/js/plugins/canvas-to-blob.min.js"></script>
+<script src="./../views/lib/bootstrap-file-input/js/fileinput.min.js"></script>
+<link rel="stylesheet"
+	href="./../views/lib/bootstrap-file-input/css/fileinput.min.css" />
+<!-- moment js -->
+<script src="./../views/lib/scripts/moment-2.10.6.min.js"></script>
+<!-- bootstrap date-time picker -->
+<script
+	src="./../views/lib/scripts/bootstrap.datetimepicker.4.14.30.min.js"></script>
+<link rel="stylesheet"
+	href="./../views/lib/css/bootstrap.datetimepicker.4.14.30.min.css" />
+<!-- icheck -->
+<script src="./../views/lib/scripts/icheck.js"></script>
+<link rel="stylesheet" href="./../views/lib/css/grey.css" />
+<link rel="stylesheet" href="./../views/lib/css/ionicons.min.css" />
+<!-- respond -->
+<script src="./../views/lib/scripts/respond.min.js"></script>
+<!-- angular -->
+<!-- <script src="./../views/lib/angular/angular.min.js"</script> -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<!-- Custom scripts/css -->
+<link rel="stylesheet" href="./../views/css/main.css" />
+<script src="./../views/script/custom.js"></script>
+<script src="./../views/script/angular/app.js"></script>
+<script src="./../views/script/angular/controller/WebServices.js"></script>
+<script src="./../views/script/angular/controller/controller.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#navDiv").load("./../views/html/navigation.html");
+	});//end of ready
+</script>
 </head>
-<body>
+<body ng-controller="smsController">
+
+
+	<header>School Management System</header>
+
+	<div id="navDiv"></div>
+	<div id="studentRenewalDiv" class="studentRegistrationDiv">
+		<div class="studentRenewalPanel panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Student Renewal :</h4>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-xs-2">
+						<label for="renewalDate" class="control-label">Renewal
+							Date :</label>
+					</div>
+					<div class="col-xs-3">
+						<div class='input-group date' id='renewalDate'>
+							<input type='text' class="form-control" id="renewalDate"
+								placeholder="Renewal Date" ng-model="student.renewalDate" /> <span
+								class="input-group-addon"> <span
+								class="glyphicon glyphicon-calendar"></span>
+							</span>
+						</div>
+					</div>
+					<div class="col-xs-2">
+						<label for="academicYear" class="control-label">Academic
+							Year :</label>
+					</div>
+					<div class="col-xs-3">
+						<div class="select-div" id="academicYear">
+							<select class="form-control" ng-model="selectedYear"
+								ng-options="y for y in years" id="academicYear"
+								name="academicYear">
+								<option value="">~ Select Year ~</option>
+							</select>
+						</div>
+					</div>
+
+				</div>
+				<br />
+				<div class="row">
+
+					<div class="col-xs-2">
+						<label for="class" class="control-label">Class :</label>
+					</div>
+					<div class="col-xs-3">
+						<div class="select-div" id="class">
+							<select class="form-control" ng-model="selectedClass"
+								ng-options="c for c in classes" id="class" name="class">
+								<option value="">~ Select Class ~</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-xs-2">
+						<label for="rollNo" class="control-label">Roll No :</label>
+					</div>
+					<div class="col-xs-3">
+						<input class="form-control" ng-model="student.rollNo" id="rollNo"
+							placeholder="Enter Roll No" />
+					</div>
+				</div>
+				<br />
+				<div class="row">
+					<div class="col-xs-2">
+						<label for="section" class="control-label">Section :</label>
+					</div>
+					<div class="col-xs-3">
+						<input class="form-control" ng-model="student.section"
+							id="section" placeholder="Section" readonly="readonly" />
+					</div>
+					<div class="col-xs-2">
+						<label for="name" class="control-label">Student Name :</label>
+					</div>
+					<div class="col-xs-3">
+						<input class="form-control" ng-model="student.name" id="name"
+							placeholder="Name" readonly="readonly" />
+					</div>
+
+				</div>
+				<br />
+				<div class="row">
+
+					<div class="col-xs-2">
+						<label for="Fees" class="control-label">Fees(E/P) : </label>
+					</div>
+					<div class="col-xs-3">
+						<div class="select-div" id="fees">
+							<select class="form-control" id="fees" name="fees"
+								ng-model="student.fees">
+								<option value="">~Select Fees Type~</option>
+								<option value="E">Exempt Category (E)</option>
+								<option value="P">Pay Category (P)</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-xs-2">
+						<label for="feesAmt" class="control-label">Fees Amt : </label>
+					</div>
+					<div class="col-xs-3">
+						<input type="text" class="form-control" id="feesAmt"
+							name="feesAmt" ng-model="student.feesAmt"
+							placeholder="Enter Fees Amount" />
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>
