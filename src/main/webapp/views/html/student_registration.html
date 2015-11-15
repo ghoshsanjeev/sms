@@ -589,7 +589,6 @@
 											<option value="B">Secion-B</option>
 											<option value="C">Secion-C</option>
 											<option value="D">Secion-D</option>
-											<option value="E">Secion-E</option>
 										</select>
 									</div>
 								</div>
@@ -643,9 +642,13 @@
 									<label for="feesAmt" class="control-label">Fees Amt : </label>
 								</div>
 								<div class="col-xs-3">
-									<input type="text" class="form-control" id="feesAmt"
-										name="feesAmt" ng-model="student.feesAmt"
-										placeholder="Enter Fees Amount" />
+										<div class="checkbox">
+										<label> <input type="radio" name="feesAmt" value="64"
+											ng-model="student.feesAmt"> &#8377 64
+										</label> <label ng-show="student.fees=='P'"> <input type="radio" name="feesAmt" value="0"
+											ng-model="student.feesAmt"> &#8377 0
+										</label>
+									</div>
 
 								</div>
 							</div>

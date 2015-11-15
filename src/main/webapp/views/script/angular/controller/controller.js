@@ -35,6 +35,7 @@ smsApp.controller("smsController", function($scope, $timeout, $http, $q,
 	$scope.selectedMonth = $scope.months[(new Date().getMonth())];
 	// ---------------------------------------------------------------------------
 	$scope.selectedClass="";
+	$scope.selectedYear="";
 	$scope.student = {
 		"studentType" : "new",
 		"firstName" : "",
@@ -74,7 +75,7 @@ smsApp.controller("smsController", function($scope, $timeout, $http, $q,
 		"stream" : "",
 		"subject" : "",
 		"fees" : "",
-		"feesAmt" : "",
+		"feesAmt" : "64",
 		"emailID" : "",
 		"yearOfPassing" : "",
 		"remark" : "",
@@ -98,6 +99,7 @@ smsApp.controller("smsController", function($scope, $timeout, $http, $q,
 	});
 	$("select[id='class'],select[id='section']").on('change',function(){
 		$scope.student.class_=$scope.selectedClass;
+		
 		$timeout(function() {
 			$scope.$apply();
 		});
@@ -119,6 +121,11 @@ smsApp.controller("smsController", function($scope, $timeout, $http, $q,
 	$("#saveButton").on('click',function() {
 		console.log("button clicked");
 		console.log($scope.student);
+		$scope.student.yearOfPassing=$scope.selectedYear;
+		$scope.student.class_=$scope.selectedClass;
+		$timeout(function() {
+			$scope.$apply();
+		});
 		WebServices._post("./createStudent", $scope.student).then(
 			function(value) {
 				if(value.data){
