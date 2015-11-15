@@ -82,11 +82,22 @@ smsApp.controller("smsController", function($scope, $timeout, $http, $q,
 		"admissionDate" : ""
 	}
 
-	$('#dateOfBirth,#AdmissionDate').on(
+	$('#dateOfBirth').on(
 			"dp.change",
 			function(e) {
-				$scope.student.dateOfBirth = $('#dateOfBirth,#AdmissionDate')
+				$scope.student.dateOfBirth = $('#dateOfBirth')
 						.data().date;
+				$timeout(function() {
+					$scope.$apply();
+				});
+			});
+	
+	$('input[id="AdmissionDate"]').on(
+			"dp.change",
+			function(e) {
+				$scope.student.admissionDate = $('input[id="AdmissionDate"]')
+						.data().date;
+				console.log($scope.student.admissionDate);
 				$timeout(function() {
 					$scope.$apply();
 				});

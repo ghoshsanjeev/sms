@@ -16,6 +16,7 @@ import com.batb.sms.dto.AddressDTO;
 import com.batb.sms.dto.StudentDTO;
 import com.batb.sms.repo.StudentRepository;
 import com.batb.sms.services.StudentService;
+import com.batb.sms.util.Utility;
 
 /**
  * 
@@ -114,11 +115,11 @@ public class StudentController {
 		 * student.setSlNo();
 		 */
 
-		student.setAdmissionDate(studentDTO.getAdmissionDate());
+		student.setAdmissionDate(Utility.getDateFromString(studentDTO.getAdmissionDate()));
 		student.setBpl(studentDTO.getBpl());
 		student.setCaste(studentDTO.getCaste());
 		student.setContNo(Long.valueOf(studentDTO.getContactNo()));
-		student.setDob(studentDTO.getDateOfBirth());
+		student.setDob(Utility.getDateFromString(studentDTO.getDateOfBirth()));
 		student.setFeeAmt(studentDTO.getFeesAmt());
 
 		student.setGender(studentDTO.getSex());

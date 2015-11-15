@@ -1,12 +1,5 @@
 package com.batb.sms.dto;
 
-import java.math.BigDecimal;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import com.batb.sms.util.Utility;
-
 /**
  * s
  * 
@@ -22,13 +15,13 @@ public class StudentDTO {
 	private AddressDTO permanentAddress = new AddressDTO();
 	private String gurdianName;
 	private String motherName;
-	private Date dateOfBirth;
+	private String dateOfBirth;
 	private String religion;
 	private String caste;
 	private String bpl;
 	private String idMark;
 	private String contactNo;
-	private Date admissionDate;
+	private String admissionDate;
 	private String class_;
 	private int rollNo;
 	private char section;
@@ -163,7 +156,7 @@ public class StudentDTO {
 	/**
 	 * @return the dateOfBirth
 	 */
-	public Date getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 
@@ -172,7 +165,7 @@ public class StudentDTO {
 	 *            the dateOfBirth to set
 	 */
 	public void setDateOfBirth(String s) {
-		this.dateOfBirth = Utility.getDateFromString(s);
+		this.dateOfBirth = s;
 	}
 
 	/**
@@ -253,7 +246,7 @@ public class StudentDTO {
 	/**
 	 * @return the admissionDate
 	 */
-	public Date getAdmissionDate() {
+	public String getAdmissionDate() {
 		return admissionDate;
 	}
 
@@ -262,7 +255,7 @@ public class StudentDTO {
 	 *            the admissionDate to set
 	 */
 	public void setAdmissionDate(String s) {
-		admissionDate = Utility.getDateFromString(s);
+		admissionDate = s;
 	}
 
 	/**
