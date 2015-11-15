@@ -48,7 +48,7 @@
 </script>
 </head>
 <body ng-controller="smsController">
-<header>School Management System</header>
+	<header>School Management System</header>
 	<div id="navDiv"></div>
 	<div id="studentRegistrationDiv" class="studentRegistrationDiv">
 		<div class="studentRegistrationPanel panel panel-default">
@@ -260,6 +260,66 @@
 								<br />
 								<div class="row">
 									<div class="col-xs-2">
+										<label for="state" class="control-label">State : </label>
+									</div>
+									<div class="col-xs-3">
+										<div class="select-div" id="class">
+											<select ng-model="student.permanentAddress.state" id="state"
+												name="state" class="form-control">
+												<option value="">~Select State~</option>
+												<option value="Andaman and Nicobar Islands">Andaman
+													and Nicobar Islands</option>
+												<option value="Andhra Pradesh">Andhra Pradesh</option>
+												<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+												<option value="Assam">Assam</option>
+												<option value="Bihar">Bihar</option>
+												<option value="Chandigarh">Chandigarh</option>
+												<option value="Chhattisgarh">Chhattisgarh</option>
+												<option value="Dadra and Nagar Haveli">Dadra and
+													Nagar Haveli</option>
+												<option value="Daman and Diu">Daman and Diu</option>
+												<option value="Delhi">Delhi</option>
+												<option value="Goa">Goa</option>
+												<option value="Gujarat">Gujarat</option>
+												<option value="Haryana">Haryana</option>
+												<option value="Himachal Pradesh">Himachal Pradesh</option>
+												<option value="Jammu and Kashmir">Jammu and Kashmir</option>
+												<option value="Jharkhand">Jharkhand</option>
+												<option value="Karnataka">Karnataka</option>
+												<option value="Kerala">Kerala</option>
+												<option value="Lakshadweep">Lakshadweep</option>
+												<option value="Madhya Pradesh">Madhya Pradesh</option>
+												<option value="Maharashtra">Maharashtra</option>
+												<option value="Manipur">Manipur</option>
+												<option value="Meghalaya">Meghalaya</option>
+												<option value="Mizoram">Mizoram</option>
+												<option value="Nagaland">Nagaland</option>
+												<option value="Orissa">Orissa</option>
+												<option value="Pondicherry">Pondicherry</option>
+												<option value="Punjab">Punjab</option>
+												<option value="Rajasthan">Rajasthan</option>
+												<option value="Sikkim">Sikkim</option>
+												<option value="Tamil Nadu">Tamil Nadu</option>
+												<option value="Telengana">Telengana</option>
+												<option value="Tripura">Tripura</option>
+												<option value="Uttaranchal">Uttaranchal</option>
+												<option value="Uttar Pradesh">Uttar Pradesh</option>
+												<option value="West Bengal">West Bengal</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-xs-2">
+										<label for="city" class="control-label">City : </label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" ng-model="student.permanentAddress.city"
+											id="city" name="city" class="form-control"
+											placeholder="Enter City" />
+									</div>
+								</div>
+								<br />
+								<div class="row">
+									<div class="col-xs-2">
 										<label for="postOffice" class="control-label">Post
 											Office(P.O) : </label>
 									</div>
@@ -307,6 +367,7 @@
 								</label>
 							</div>
 							<br />
+							<br />
 							<!-- Current Address -->
 							<fieldset class="currentAddress" ng-hide="student.sameAddress">
 								<legend class="currentAddress">Current Address</legend>
@@ -349,6 +410,66 @@
 										<input type="text" class="form-control" name="villageOrTown"
 											placeholder="Village or Town"
 											ng-model="student.currentAddress.villageOrTown" />
+									</div>
+								</div>
+								<br />
+								<div class="row">
+									<div class="col-xs-2">
+										<label for="state" class="control-label">State : </label>
+									</div>
+									<div class="col-xs-3">
+										<div class="select-div" id="class">
+											<select ng-model="student.currentAddress.state" id="state"
+												name="state" class="form-control">
+												<option value="">~Select State~</option>
+												<option value="Andaman and Nicobar Islands">Andaman
+													and Nicobar Islands</option>
+												<option value="Andhra Pradesh">Andhra Pradesh</option>
+												<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+												<option value="Assam">Assam</option>
+												<option value="Bihar">Bihar</option>
+												<option value="Chandigarh">Chandigarh</option>
+												<option value="Chhattisgarh">Chhattisgarh</option>
+												<option value="Dadra and Nagar Haveli">Dadra and
+													Nagar Haveli</option>
+												<option value="Daman and Diu">Daman and Diu</option>
+												<option value="Delhi">Delhi</option>
+												<option value="Goa">Goa</option>
+												<option value="Gujarat">Gujarat</option>
+												<option value="Haryana">Haryana</option>
+												<option value="Himachal Pradesh">Himachal Pradesh</option>
+												<option value="Jammu and Kashmir">Jammu and Kashmir</option>
+												<option value="Jharkhand">Jharkhand</option>
+												<option value="Karnataka">Karnataka</option>
+												<option value="Kerala">Kerala</option>
+												<option value="Lakshadweep">Lakshadweep</option>
+												<option value="Madhya Pradesh">Madhya Pradesh</option>
+												<option value="Maharashtra">Maharashtra</option>
+												<option value="Manipur">Manipur</option>
+												<option value="Meghalaya">Meghalaya</option>
+												<option value="Mizoram">Mizoram</option>
+												<option value="Nagaland">Nagaland</option>
+												<option value="Orissa">Orissa</option>
+												<option value="Pondicherry">Pondicherry</option>
+												<option value="Punjab">Punjab</option>
+												<option value="Rajasthan">Rajasthan</option>
+												<option value="Sikkim">Sikkim</option>
+												<option value="Tamil Nadu">Tamil Nadu</option>
+												<option value="Telengana">Telengana</option>
+												<option value="Tripura">Tripura</option>
+												<option value="Uttaranchal">Uttaranchal</option>
+												<option value="Uttar Pradesh">Uttar Pradesh</option>
+												<option value="West Bengal">West Bengal</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-xs-2">
+										<label for="city" class="control-label">City : </label>
+									</div>
+									<div class="col-xs-3">
+										<input type="text" ng-model="student.currentAddress.city"
+											id="city" name="city" class="form-control"
+											placeholder="Enter City" />
 									</div>
 								</div>
 								<br />
@@ -424,7 +545,7 @@
 								</div>
 								<div class="col-xs-3">
 									<div class="input-group date" id="AdmissionDate">
-										<input type="date" class="form-control" id="AdmissionDate"
+										<input type="text" class="form-control" id="AdmissionDate"
 											name="AdmissionDate" ng-model="student.AdmissionDate"
 											placeholder="Enter Admission Date" /><span
 											class="input-group-addon"> <span
@@ -473,7 +594,7 @@
 									</div>
 								</div>
 							</div>
-							<br />
+							<br ng-show="selectedClass>10" />
 							<div class="row" ng-show="selectedClass>10">
 
 								<div class="col-xs-2">
@@ -502,7 +623,7 @@
 									</div>
 								</div>
 							</div>
-							<br  />
+							<br />
 							<div class="row">
 
 								<div class="col-xs-2">
@@ -528,7 +649,21 @@
 
 								</div>
 							</div>
-							<br ng-show="selectedClass>10"/>
+							<br ng-show="student.fees=='E'" />
+							<div class="row" ng-show="student.fees=='E'">
+								<div class="col-xs-2"></div>
+								<div class="col-xs-3"></div>
+								<div class="col-xs-2">
+									<label for="donation" class="control-label">Donation :
+									</label>
+								</div>
+								<div class="col-xs-3">
+									<input type="text" class="form-control" id="donation"
+										name="donation" ng-model="student.donation"
+										placeholder="Enter Donation Amount" />
+								</div>
+							</div>
+							<br ng-show="selectedClass>10" />
 							<div class="row" ng-show="selectedClass>10">
 
 								<div class="col-xs-2">
@@ -550,7 +685,7 @@
 										placeholder="Enter Board Roll No" />
 								</div>
 							</div>
-							<br ng-show="selectedClass>10"/>
+							<br ng-show="selectedClass>10" />
 							<div class="row" ng-show="selectedClass>10">
 
 								<div class="col-xs-2">
@@ -572,7 +707,7 @@
 										placeholder="Grade in MP" />
 								</div>
 							</div>
-							<br ng-show="selectedClass>10"/>
+							<br ng-show="selectedClass>10" />
 							<div class="row" ng-show="student.studentType=='old'">
 
 								<div class="col-xs-2">

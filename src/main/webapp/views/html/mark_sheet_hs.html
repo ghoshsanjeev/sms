@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="smsApp">
 <head>
 <meta charset="ISO-8859-1">
 <title>Mark Sheet for XI-XII</title>
@@ -58,67 +58,129 @@
 	});//end of ready
 </script>
 </head>
-<body>
-<header>School Management System</header>
+<body ng-controller="smsController">
+	<header>School Management System</header>
 
-<div id="navDiv"></div>
+	<div id="navDiv"></div>
 	<div id="markSheetHSDiv" class="markSheetHSDiv">
 		<div class="markSheetHSPanel panel panel-default">
 			<div class="panel-heading">
 				<h4 class="panel-title">Mark Sheet for XI-XII :</h4>
 			</div>
 			<div class="panel-body">
-				<table class="table" border="1">
-					<thead>
-						<tr>
-							<th rowspan="2">Roll No</th>
-							<th rowspan="2">Name</th>
-							<th rowspan="1" colspan="3">1st Language</th>
-							<th rowspan="1" colspan="3">2nd Language</th>
-							<th rowspan="1" colspan="4">1st Compulsory Elec. Subject</th>
-							<th rowspan="1" colspan="4">2nd Compulsory Elec. Subject</th>
-							<th rowspan="1" colspan="4">3rd Compulsory Elec. Subject</th>
-							<th rowspan="1" colspan="4">Optional Elec. Subject</th>
-							<th rowspan="1" colspan="4">Environmental Study</th>
-						</tr>
-						<tr>
-							<th>lit.</th>
-							<th>Proj.</th>
-							<th>Total</th>
-							<th>lit.</th>
-							<th>Proj.</th>
-							<th>Total</th>
-							<th>lit.</th>
-							<th>Pr.</th>
-							<th>Proj.</th>
-							<th>Total</th>
-							<th>lit.</th>
-							<th>Pr.</th>
-							<th>Proj.</th>
-							<th>Total</th>
-							<th>lit.</th>
-							<th>Pr.</th>
-							<th>Proj.</th>
-							<th>Total</th>
-							<th>lit.</th>
-							<th>Pr.</th>
-							<th>Proj.</th>
-							<th>Total</th>
-							<th>lit.</th>
-							<th>Pr.</th>
-							<th>Proj.</th>
-							<th>Total</th>
+				<div class="row">
+					<div class="col-xs-2">
+						<label for="academicYear" class="control-label">Academic
+							Year :</label>
+					</div>
+					<div class="col-xs-3">
+						<div class="select-div" id="academicYear">
+							<select class="form-control" ng-model="selectedYear"
+								ng-options="y for y in years" id="academicYear"
+								name="academicYear">
+								<option value="">~ Select Year ~</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-xs-2">
+						<label for="examination" class="control-label">Select
+							Examination:</label>
+					</div>
+					<div class="col-xs-3">
+						<div class="select-div" id="examination">
+							<select class="form-control" id="examination" name="examination">
+								<option value="">~Select Examination Name~</option>
+								<option value="pre-test">Pre Test</option>
+								<option value="test">Test</option>
+								<option value="final">Final</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<br />
+				<div class="row">
 
-						</tr>
-					</thead>
-					<tbody></tbody>
+					<div class="col-xs-2">
+						<label for="class" class="control-label">Class :</label>
+					</div>
+					<div class="col-xs-3">
+						<div class="select-div" id="class">
+							<select class="form-control" ng-model="selectedClass" id="class"
+								name="class">
+								<option value="">~ Select Class ~</option>
+								<option value="xi">XI</option>
+								<option value="xii">XII</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-xs-2">
+						<label for="section" class="control-label">Select Section:</label>
+					</div>
+					<div class="col-xs-3">
+						<div class="select-div" id="section">
+							<select id="section" name="section" ng-model="section"
+								class="form-control">
+								<option value="">~Select Section~</option>
+								<option value="A">A</option>
+								<option value="B">B</option>
+								<option value="C">C</option>
+								<option value="D">D</option>
+							</select>
+						</div>
+
+					</div>
+					<br /> <br />
+					<hr />
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th rowspan="2">Roll No</th>
+								<th rowspan="2">Name</th>
+								<th rowspan="1" colspan="3">1st Language</th>
+								<th rowspan="1" colspan="3">2nd Language</th>
+								<th rowspan="1" colspan="4">1st Compulsory Elec. Subject</th>
+								<th rowspan="1" colspan="4">2nd Compulsory Elec. Subject</th>
+								<th rowspan="1" colspan="4">3rd Compulsory Elec. Subject</th>
+								<th rowspan="1" colspan="4">Optional Elec. Subject</th>
+								<th rowspan="1" colspan="4">Environmental Study</th>
+							</tr>
+							<tr>
+								<th>lit.</th>
+								<th>Proj.</th>
+								<th>Total</th>
+								<th>lit.</th>
+								<th>Proj.</th>
+								<th>Total</th>
+								<th>lit.</th>
+								<th>Pr.</th>
+								<th>Proj.</th>
+								<th>Total</th>
+								<th>lit.</th>
+								<th>Pr.</th>
+								<th>Proj.</th>
+								<th>Total</th>
+								<th>lit.</th>
+								<th>Pr.</th>
+								<th>Proj.</th>
+								<th>Total</th>
+								<th>lit.</th>
+								<th>Pr.</th>
+								<th>Proj.</th>
+								<th>Total</th>
+								<th>lit.</th>
+								<th>Pr.</th>
+								<th>Proj.</th>
+								<th>Total</th>
+
+							</tr>
+						</thead>
+						<tbody></tbody>
 
 
 
-				</table>
+					</table>
+				</div>
 			</div>
 		</div>
-	</div>
-
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 package com.batb.sms.dto;
 
 /**
@@ -11,19 +12,12 @@ public class AddressDTO {
 	private String addressLine2;
 	private String streetName;
 	private String villageOrTown;
+	private String state;
+	private String city;
 	private String postOffice;
 	private String policeStation;
 	private String district;
 	private String pincode;
-	private String city;
-	
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
 
 	/**
 	 * @return the addressLine1
@@ -83,6 +77,36 @@ public class AddressDTO {
 	 */
 	public void setVillageOrTown(String villageOrTown) {
 		this.villageOrTown = villageOrTown;
+	}
+	
+	
+
+	/**
+	 * @return the state
+	 */
+	public String getState() {
+		return state;
+	}
+
+	/**
+	 * @param state the state to set
+	 */
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	/**
+	 * @return the city
+	 */
+	public String getCity() {
+		return city;
+	}
+
+	/**
+	 * @param city the city to set
+	 */
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	/**
@@ -145,16 +169,21 @@ public class AddressDTO {
 		this.pincode = pincode;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "AddressDTO [addressLine1=" + addressLine1 + ", addressLine2=" + addressLine2 + ", streetName="
-				+ streetName + ", villageOrTown=" + villageOrTown + ", postOffice=" + postOffice + ", policeStation="
-				+ policeStation + ", district=" + district + ", pincode=" + pincode + "]";
+		return "Address[addressLine1=" + addressLine1 + ", addressLine2=" + addressLine2 + ", streetName="
+				+ streetName + ", villageOrTown=" + villageOrTown + ", state=" + state + ", city=" + city
+				+ ", postOffice=" + postOffice + ", policeStation=" + policeStation + ", district=" + district
+				+ ", pincode=" + pincode + "]";
 	}
 
+
+	
+	
+	
+
 }
+
