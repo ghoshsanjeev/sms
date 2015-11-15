@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.batb.sms.bean.Address;
+import com.batb.sms.bean.Student;
 import com.batb.sms.constant.ViewNames;
+import com.batb.sms.dto.AddressDTO;
 import com.batb.sms.dto.StudentDTO;
 import com.batb.sms.repo.StudentRepository;
-import com.batb.sms.repo.StudentRepositoryImpl;
 import com.batb.sms.services.StudentService;
 
 /**
@@ -71,7 +73,66 @@ public class StudentController {
 		// TODO: dozer mapping for studentDTO <=> student
 		System.out.println(studentDTO);
 
-		System.out.println(repo.getGeneratedRollNo(6, 'A'));
+		Student student = new Student();
+		Address addressCurrent = new Address();
+		Address addressPermanent = new Address();
+		AddressDTO addressDTOCurrent = new AddressDTO();
+		AddressDTO addressDTOPermanent = new AddressDTO();
+		addressDTOCurrent = studentDTO.getCurrentAddress();
+		addressDTOPermanent = studentDTO.getPermanentAddress();
+
+		addressCurrent.setLine1(addressDTOCurrent.getAddressLine1());
+		addressCurrent.setLine2(addressDTOCurrent.getAddressLine2());
+		addressCurrent.setCity(addressDTOCurrent.getCity());
+		addressCurrent.setDistrict(addressDTOCurrent.getDistrict());
+		addressCurrent.setPin(Long.valueOf(addressDTOCurrent.getPincode()));
+		addressCurrent.setPo(addressDTOCurrent.getPostOffice());
+		addressCurrent.setPs(addressDTOCurrent.getPoliceStation());
+		addressCurrent.setState(addressDTOCurrent.getState());
+		addressCurrent.setVillage(addressDTOCurrent.getVillageOrTown());
+
+		addressPermanent.setLine1(addressDTOPermanent.getAddressLine1());
+		addressPermanent.setLine2(addressDTOPermanent.getAddressLine2());
+		addressPermanent.setCity(addressDTOPermanent.getCity());
+		addressPermanent.setDistrict(addressDTOPermanent.getDistrict());
+		addressPermanent.setPin(Long.valueOf(addressDTOPermanent.getPincode()));
+		addressPermanent.setPo(addressDTOPermanent.getPostOffice());
+		addressPermanent.setPs(addressDTOPermanent.getPoliceStation());
+		addressPermanent.setState(addressDTOPermanent.getState());
+		addressPermanent.setVillage(addressDTOPermanent.getVillageOrTown());
+
+		student.setCurrentAddress(addressCurrent);
+		student.setPermanentAddress(addressPermanent);
+
+		/*
+		 * TODO: UI - DTO fields missing student.setAdmissionClass();
+		 * student.setAdmissionSection(); student.setBoradName();
+		 * student.setFeesEP(); student.setGradeMpHs();
+		 * student.setInstituteName(); student.setLastClass();
+		 * student.setMaritalStatus(); student.setMarksInLastClass();
+		 * student.setPrfAppForm(); student.setRegistrationNo();
+		 * student.setSlNo();
+		 */
+
+		student.setAdmissionDate(studentDTO.getAdmissionDate());
+		student.setBpl(studentDTO.getBpl());
+		student.setCaste(studentDTO.getCaste());
+		student.setContNo(Long.valueOf(studentDTO.getContactNo()));
+		student.setDob(studentDTO.getDateOfBirth());
+		student.setFeeAmt(studentDTO.getFeesAmt());
+
+		student.setGender(studentDTO.getSex());
+
+		student.setGuardianName(studentDTO.getGurdianName());
+		student.setIdMark(studentDTO.getIdMark());
+		student.setMothersName(studentDTO.getMotherName());
+		student.setName(studentDTO.getFirstName() + " " + studentDTO.getLastName());
+		student.setReligion(studentDTO.getReligion());
+		student.setStdRollNo(studentDTO.getRollNo());
+		student.setStream(studentDTO.getStream());
+
+		service.create(student);
+
 		return false;
 	}
 

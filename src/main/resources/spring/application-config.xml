@@ -31,7 +31,7 @@
 	</beans:bean>
 
 
-	<beans:import resource="../cache-config.xml" />
+	<!-- beans:import resource="../cache-config.xml" /-->
 	<beans:import resource="../database-config.xml" />
 
 </beans:beans>
