@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="smsApp">
 <head>
 <meta charset="ISO-8859-1">
-<title>Administration Document Entry</title>
+<title>Administration Document Creation</title>
 <!-- jQuery -->
 <script src="./../views/lib/jquery/jquery-2.1.4.min.js"></script>
 <!-- bootstrap -->
@@ -46,13 +46,13 @@
 	});//end of ready
 </script>
 </head>
-<body>
+<body ng-controller="smsController">
 	<header>School Management System</header>
 	<div id="navDiv"></div>
 	<div id="adminDocumentEntryDiv" class="adminDocumentEntryDiv">
 		<div class="adminDocumentEntryPanel panel panel-default">
 			<div class="panel-heading">
-				<h4 class="panel-title">Administration Document Entry :</h4>
+				<h4 class="panel-title">Administration Document Creation :</h4>
 			</div>
 			<div class="panel-body">
 				<div class="row">
@@ -119,12 +119,43 @@
 					</div>
 					<br />
 					<div class="row">
-						<h3>Student Data will be posted on to the respectative area
-							of a Pre Formated Certificate and displayed here with a complete
-							form.</h3>
-					</div>
 
+						<div class="col-xs-2">
+							<label for="class" class="control-label">Class :</label>
+						</div>
+						<div class="col-xs-3">
+							<div class="select-div" id="class">
+								<select class="form-control" ng-model="selectedClass"
+									ng-options="c for c in classes" id="class" name="class">
+									<option value="">~ Select Class ~</option>
+
+								</select>
+							</div>
+						</div>
+						<div class="col-xs-2">
+							<label for="section" class="control-label">Select
+								Section:</label>
+						</div>
+						<div class="col-xs-3">
+							<div class="select-div" id="section">
+								<select id="section" name="section" ng-model="section"
+									class="form-control">
+									<option value="">~Select Section~</option>
+									<option value="A">A</option>
+									<option value="B">B</option>
+									<option value="C">C</option>
+									<option value="D">D</option>
+								</select>
+							</div>
+
+						</div>
 				</fieldset>
+				<br />
+				<div class="row">
+					<h3 style="padding: 5px;">Student Data will be posted on to the respectative area of
+						a Pre Formated Certificate and displayed here with a complete
+						form.</h3>
+				</div>
 				<br />
 				<hr>
 				<center>

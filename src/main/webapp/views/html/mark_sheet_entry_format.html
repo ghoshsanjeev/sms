@@ -108,7 +108,7 @@
 					<div class="col-xs-3">
 						<div class="select-div" id="class">
 							<select class="form-control" ng-model="selectedClass"
-								ng-options="c for c in classes" id="class" name="class">
+								ng-options="c for c in classes | limitTo:4" id="class" name="class">
 								<option value="">~ Select Class ~</option>
 							</select>
 						</div>
