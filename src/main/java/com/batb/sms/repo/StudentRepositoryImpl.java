@@ -34,5 +34,7 @@ public class StudentRepositoryImpl implements StudentRepositoryCustom {
 		return (BigDecimal) result.get(0);
 
 	}
+	
+	
 
 }
