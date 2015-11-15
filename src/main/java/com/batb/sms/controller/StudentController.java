@@ -63,6 +63,7 @@ public class StudentController {
 	public @ResponseBody boolean createStudent(@RequestBody StudentDTO studentDTO) {
 		// TODO: dozer mapping for studentDTO <=> student
 		System.out.println(studentDTO);
+		
 		System.out.println(repo.getGeneratedRollNo(6, 'A'));
 		return false;
 	}
