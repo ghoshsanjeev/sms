@@ -15,6 +15,15 @@ public class AddressDTO {
 	private String policeStation;
 	private String district;
 	private String pincode;
+	private String city;
+	
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
 
 	/**
 	 * @return the addressLine1
@@ -136,7 +145,9 @@ public class AddressDTO {
 		this.pincode = pincode;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -145,7 +156,5 @@ public class AddressDTO {
 				+ streetName + ", villageOrTown=" + villageOrTown + ", postOffice=" + postOffice + ", policeStation="
 				+ policeStation + ", district=" + district + ", pincode=" + pincode + "]";
 	}
-	
-	
 
 }
