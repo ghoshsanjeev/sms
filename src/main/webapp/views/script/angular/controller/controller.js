@@ -134,6 +134,9 @@ smsApp.controller("smsController", function($scope, $timeout, $http, $q,
 		console.log($scope.student);
 		$scope.student.yearOfPassing=$scope.selectedYear;
 		$scope.student.class_=$scope.selectedClass;
+		if($scope.student.sameAddress){
+			$scope.student.currentAddress=$scope.student.permanentAddress;
+		}
 		$timeout(function() {
 			$scope.$apply();
 		});
