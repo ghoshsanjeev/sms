@@ -4,19 +4,18 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
-
 /**
  * The persistent class for the TBL_ADDRESS database table.
  * 
  */
 @Entity
-@Table(name="TBL_ADDRESS")
-@NamedQuery(name="Address.findAll", query="SELECT a FROM Address a")
+@Table(name = "TBL_ADDRESS")
+@NamedQuery(name = "Address.findAll", query = "SELECT a FROM Address a")
 public class Address implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String id;
 
 	private String city;
@@ -28,46 +27,36 @@ public class Address implements Serializable {
 	private String po;
 
 	private String ps;
-private String line1;
-private String line2;
-	
-	@Column(name="\"STATE\"")
+	private String line1;
+	private String line2;
+
+	@Column(name = "\"STATE\"")
 	private String state;
 
 	private String village;
 
-	//bi-directional many-to-one association to TblStudent
-	@OneToMany(mappedBy="currentAddress")
+	// bi-directional many-to-one association to TblStudent
+	@OneToMany(mappedBy = "currentAddress")
 	private List<Student> students;
 
 	public Address() {
 	}
-	
-	
 
 	public String getLine1() {
 		return line1;
 	}
 
-
-
 	public void setLine1(String line1) {
 		this.line1 = line1;
 	}
-
-
 
 	public String getLine2() {
 		return line2;
 	}
 
-
-
 	public void setLine2(String line2) {
 		this.line2 = line2;
 	}
-
-
 
 	public String getId() {
 		return this.id;

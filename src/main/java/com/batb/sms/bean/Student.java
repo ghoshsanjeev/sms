@@ -28,7 +28,7 @@ public class Student implements Serializable {
 	private Date admissionDate;
 
 	@Column(name = "ADM_SEC")
-	private String admissionSecson;
+	private String admissionSection;
 
 	@Column(name = "BORAD_NAME")
 	private String boradName;
@@ -44,7 +44,7 @@ public class Student implements Serializable {
 	private Date dob;
 
 	@Column(name = "FEE_AMT")
-	private BigDecimal feeAmt;
+	private double feeAmt;
 
 	@Column(name = "FEES_E_P")
 	private String feesEP;
@@ -62,19 +62,19 @@ public class Student implements Serializable {
 	private String instituteName;
 
 	@Column(name = "LAST_CLASS")
-	private BigDecimal lastClass;
+	private int lastClass;
 
 	@Column(name = "ML_STATUS")
 	private String maritalStatus;
 
 	@Column(name = "MO_MP_HS")
-	private BigDecimal marksObtainedMpHs;
+	private int marksObtainedMpHs;
 
 	@Column(name = "MOTH_NAME")
 	private String mothersName;
 
 	@Column(name = "MRK_LAST_CLASS")
-	private BigDecimal marksInLastClass;
+	private int marksInLastClass;
 
 	@Column(name = "PRF_APP_FORM")
 	private String prfAppForm;
@@ -97,10 +97,10 @@ public class Student implements Serializable {
 	private String gender;
 
 	@Column(name = "SL_NO")
-	private BigDecimal slNo;
+	private long slNo;
 
 	@Column(name = "STD_ROLL_NO")
-	private BigDecimal stdRollNo;
+	private int stdRollNo;
 
 	@Column(name = "STDNT_NAME")
 	private String name;
@@ -143,6 +143,52 @@ public class Student implements Serializable {
 	public Student() {
 	}
 
+	public String getAdmissionSection() {
+		return admissionSection;
+	}
+
+	public void setAdmissionSection(String admissionSection) {
+		this.admissionSection = admissionSection;
+	}
+
+	public List<CertificateFieldValue> getCertificateFieldValues() {
+		return certificateFieldValues;
+	}
+
+	public void setCertificateFieldValues(List<CertificateFieldValue> certificateFieldValues) {
+		this.certificateFieldValues = certificateFieldValues;
+	}
+
+	public List<StudentAcademicPreformanceHistory> getStudentAcademicPreformanceHistorys() {
+		return studentAcademicPreformanceHistorys;
+	}
+
+	public void setStudentAcademicPreformanceHistorys(
+			List<StudentAcademicPreformanceHistory> studentAcademicPreformanceHistorys) {
+		this.studentAcademicPreformanceHistorys = studentAcademicPreformanceHistorys;
+	}
+
+	public StudentCurrentStandard getStudentCurrentStandard() {
+		return studentCurrentStandard;
+	}
+
+	public void setStudentCurrentStandard(StudentCurrentStandard studentCurrentStandard) {
+		this.studentCurrentStandard = studentCurrentStandard;
+	}
+
+	public List<StudentCurrentStandardPerformance> getStudentCurrentStandardPerformances() {
+		return studentCurrentStandardPerformances;
+	}
+
+	public void setStudentCurrentStandardPerformances(
+			List<StudentCurrentStandardPerformance> studentCurrentStandardPerformances) {
+		this.studentCurrentStandardPerformances = studentCurrentStandardPerformances;
+	}
+
+	public List<StudentAttendance> getStudentAttendances() {
+		return studentAttendances;
+	}
+
 	public String getId() {
 		return this.id;
 	}
@@ -165,14 +211,6 @@ public class Student implements Serializable {
 
 	public void setAdmissionDate(Date admissionDate) {
 		this.admissionDate = admissionDate;
-	}
-
-	public String getAdmissionSecson() {
-		return this.admissionSecson;
-	}
-
-	public void setAdmissionSecson(String admissionSecson) {
-		this.admissionSecson = admissionSecson;
 	}
 
 	public String getBoradName() {
@@ -215,11 +253,11 @@ public class Student implements Serializable {
 		this.dob = dob;
 	}
 
-	public BigDecimal getFeeAmt() {
+	public double getFeeAmt() {
 		return this.feeAmt;
 	}
 
-	public void setFeeAmt(BigDecimal feeAmt) {
+	public void setFeeAmt(double feeAmt) {
 		this.feeAmt = feeAmt;
 	}
 
@@ -263,11 +301,11 @@ public class Student implements Serializable {
 		this.instituteName = instituteName;
 	}
 
-	public BigDecimal getLastClass() {
+	public int getLastClass() {
 		return this.lastClass;
 	}
 
-	public void setLastClass(BigDecimal lastClass) {
+	public void setLastClass(int lastClass) {
 		this.lastClass = lastClass;
 	}
 
@@ -279,11 +317,11 @@ public class Student implements Serializable {
 		this.maritalStatus = maritalStatus;
 	}
 
-	public BigDecimal getMarksObtainedMpHs() {
+	public int getMarksObtainedMpHs() {
 		return this.marksObtainedMpHs;
 	}
 
-	public void setMarksObtainedMpHs(BigDecimal marksObtainedMpHs) {
+	public void setMarksObtainedMpHs(int marksObtainedMpHs) {
 		this.marksObtainedMpHs = marksObtainedMpHs;
 	}
 
@@ -295,11 +333,11 @@ public class Student implements Serializable {
 		this.mothersName = mothersName;
 	}
 
-	public BigDecimal getMarksInLastClass() {
+	public int getMarksInLastClass() {
 		return this.marksInLastClass;
 	}
 
-	public void setMarksInLastClass(BigDecimal marksInLastClass) {
+	public void setMarksInLastClass(int marksInLastClass) {
 		this.marksInLastClass = marksInLastClass;
 	}
 
@@ -359,19 +397,19 @@ public class Student implements Serializable {
 		this.gender = gender;
 	}
 
-	public BigDecimal getSlNo() {
+	public long getSlNo() {
 		return this.slNo;
 	}
 
-	public void setSlNo(BigDecimal slNo) {
+	public void setSlNo(long slNo) {
 		this.slNo = slNo;
 	}
 
-	public BigDecimal getStdRollNo() {
+	public int getStdRollNo() {
 		return this.stdRollNo;
 	}
 
-	public void setStdRollNo(BigDecimal stdRollNo) {
+	public void setStdRollNo(int stdRollNo) {
 		this.stdRollNo = stdRollNo;
 	}
 

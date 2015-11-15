@@ -1,5 +1,8 @@
 package com.batb.sms.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,8 +28,6 @@ public class StudentController {
 	@Autowired
 	private StudentService service;
 
-	
-
 	@RequestMapping(value = "/registration")
 	public String getRegistrationPage() {
 		return ViewNames.STUDENT_REGISTRATION;
@@ -51,7 +52,7 @@ public class StudentController {
 	public String getMarkSheetMPage() {
 		return ViewNames.MARK_SHEET_M;
 	}
-	
+
 	@RequestMapping(value = "/renewal")
 	public String getRenewalPage() {
 		return ViewNames.RENEWAL;
@@ -66,26 +67,71 @@ public class StudentController {
 	public @ResponseBody boolean createStudent(@RequestBody StudentDTO studentDTO) {
 		// TODO: dozer mapping for studentDTO <=> student
 		System.out.println(studentDTO);
-		
+
 		Student student = new Student();
 		Address addressCurrent = new Address();
 		Address addressPermanent = new Address();
 		AddressDTO addressDTOCurrent = new AddressDTO();
-		AddressDTO addressDTOPermamanent = new AddressDTO();
+		AddressDTO addressDTOPermanent = new AddressDTO();
 		addressDTOCurrent = studentDTO.getCurrentAddress();
-		addressDTOPermamanent = studentDTO.getPermanentAddress();
-		
+		addressDTOPermanent = studentDTO.getPermanentAddress();
+
 		addressCurrent.setLine1(addressDTOCurrent.getAddressLine1());
 		addressCurrent.setLine2(addressDTOCurrent.getAddressLine2());
 		addressCurrent.setCity(addressDTOCurrent.getCity());
-		addressCurrent.setDistrict(addressDTOPermamanent.getDistrict());
+		addressCurrent.setDistrict(addressDTOCurrent.getDistrict());
 		addressCurrent.setPin(Long.valueOf(addressDTOCurrent.getPincode()));
 		addressCurrent.setPo(addressDTOCurrent.getPostOffice());
 		addressCurrent.setPs(addressDTOCurrent.getPoliceStation());
-		addressCurrent.setState(addressDTOCurrent.getS);
+		addressCurrent.setState(addressDTOCurrent.getState());
+		addressCurrent.setVillage(addressDTOCurrent.getVillageOrTown());
+
+		addressPermanent.setLine1(addressDTOPermanent.getAddressLine1());
+		addressPermanent.setLine2(addressDTOPermanent.getAddressLine2());
+		addressPermanent.setCity(addressDTOPermanent.getCity());
+		addressPermanent.setDistrict(addressDTOPermanent.getDistrict());
+		addressPermanent.setPin(Long.valueOf(addressDTOPermanent.getPincode()));
+		addressPermanent.setPo(addressDTOPermanent.getPostOffice());
+		addressPermanent.setPs(addressDTOPermanent.getPoliceStation());
+		addressPermanent.setState(addressDTOPermanent.getState());
+		addressPermanent.setVillage(addressDTOPermanent.getVillageOrTown());
+
+		student.setCurrentAddress(addressCurrent);
+		student.setPermanentAddress(addressPermanent);
+
+		/* TODO: UI - DTO fields missing
+		student.setAdmissionClass();
+		student.setAdmissionSection();
+		student.setBoradName();
+		student.setFeesEP();
+		student.setGradeMpHs();
+		student.setInstituteName();
+		student.setLastClass();
+		student.setMaritalStatus();
+		student.setMarksInLastClass();
+		student.setPrfAppForm();
+		student.setRegistrationNo();
+		student.setSlNo();*/
 		
+		student.setAdmissionDate(studentDTO.getAdmissionDate());
+		student.setBpl(studentDTO.getBpl());
+		student.setCaste(studentDTO.getCaste());
+		student.setContNo(Long.valueOf(studentDTO.getContactNo()));
+		student.setDob(studentDTO.getDateOfBirth());
+		student.setFeeAmt(studentDTO.getFeesAmt());
 		
-		System.out.println(repo.getGeneratedRollNo(6, 'A'));
+		student.setGender(studentDTO.getSex());
+		
+		student.setGuardianName(studentDTO.getGurdianName());
+		student.setIdMark(studentDTO.getIdMark());
+		student.setMothersName(studentDTO.getMotherName());
+		student.setName(studentDTO.getFirstName()+" "+studentDTO.getLastName());
+		student.setReligion(studentDTO.getReligion());
+		student.setStdRollNo(studentDTO.getRollNo());
+		student.setStream(studentDTO.getStream());
+
+		service.create(student);
+		
 		return false;
 	}
 

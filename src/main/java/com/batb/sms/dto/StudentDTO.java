@@ -1,5 +1,12 @@
 package com.batb.sms.dto;
 
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import com.batb.sms.util.Utility;
+
 /**
  * s
  * 
@@ -15,20 +22,20 @@ public class StudentDTO {
 	private AddressDTO permanentAddress = new AddressDTO();
 	private String gurdianName;
 	private String motherName;
-	private String dateOfBirth;
+	private Date dateOfBirth;
 	private String religion;
 	private String caste;
 	private String bpl;
 	private String idMark;
 	private String contactNo;
-	private String AdmissionDate;
+	private Date admissionDate;
 	private String class_;
 	private int rollNo;
 	private char section;
 	private String stream;
 	private String subject;
 	private String fees;
-	private String feesAmt;
+	private double feesAmt;
 	private String emailID;
 	private String yearOfPassing;
 	private String remark;
@@ -156,7 +163,7 @@ public class StudentDTO {
 	/**
 	 * @return the dateOfBirth
 	 */
-	public String getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
 
@@ -164,8 +171,8 @@ public class StudentDTO {
 	 * @param dateOfBirth
 	 *            the dateOfBirth to set
 	 */
-	public void setDateOfBirth(String dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public void setDateOfBirth(String s) {
+		this.dateOfBirth = Utility.getDateFromString(s);
 	}
 
 	/**
@@ -246,16 +253,16 @@ public class StudentDTO {
 	/**
 	 * @return the admissionDate
 	 */
-	public String getAdmissionDate() {
-		return AdmissionDate;
+	public Date getAdmissionDate() {
+		return admissionDate;
 	}
 
 	/**
 	 * @param admissionDate
 	 *            the admissionDate to set
 	 */
-	public void setAdmissionDate(String admissionDate) {
-		AdmissionDate = admissionDate;
+	public void setAdmissionDate(String s) {
+		admissionDate = Utility.getDateFromString(s);
 	}
 
 	/**
@@ -336,7 +343,7 @@ public class StudentDTO {
 	/**
 	 * @return the feesAmt
 	 */
-	public String getFeesAmt() {
+	public double getFeesAmt() {
 		return feesAmt;
 	}
 
@@ -344,8 +351,8 @@ public class StudentDTO {
 	 * @param feesAmt
 	 *            the feesAmt to set
 	 */
-	public void setFeesAmt(String feesAmt) {
-		this.feesAmt = feesAmt;
+	public void setFeesAmt(String s) {
+		this.feesAmt = Double.valueOf(s);
 	}
 
 	/**
@@ -419,7 +426,7 @@ public class StudentDTO {
 				+ ", sex=" + sex + ", currentAddress=" + currentAddress + ", permanentAddress=" + permanentAddress
 				+ ", gurdianName=" + gurdianName + ", motherName=" + motherName + ", dateOfBirth=" + dateOfBirth
 				+ ", religion=" + religion + ", caste=" + caste + ", bpl=" + bpl + ", idMark=" + idMark + ", contactNo="
-				+ contactNo + ", AdmissionDate=" + AdmissionDate + ", class_=" + class_ + ", rollNo=" + rollNo
+				+ contactNo + ", AdmissionDate=" + admissionDate + ", class_=" + class_ + ", rollNo=" + rollNo
 				+ ", stream=" + stream + ", subject=" + subject + ", fees=" + fees + ", feesAmt=" + feesAmt
 				+ ", emailID=" + emailID + ", yearOfPassing=" + yearOfPassing + ", remark=" + remark + "]";
 	}
