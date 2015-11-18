@@ -15,8 +15,9 @@ public class Address implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SEQ_ADDRESS")
+	@SequenceGenerator(name="SEQ_ADDRESS",sequenceName="SEQ_ADDRESS", allocationSize=1)
+	private long id;
 
 	private String city;
 
@@ -37,10 +38,39 @@ public class Address implements Serializable {
 
 	// bi-directional many-to-one association to TblStudent
 	@OneToMany(mappedBy = "currentAddress")
-	private List<Student> students;
+	private List<Student> studentsOfCurrentAddress;
 
+	@OneToMany(mappedBy ="permanentAddress")
+	private List<Student> studentsOfPermanentAddress;
+	
 	public Address() {
 	}
+
+	
+	
+	public List<Student> getStudentsOfCurrentAddress() {
+		return studentsOfCurrentAddress;
+	}
+
+
+
+	public void setStudentsOfCurrentAddress(List<Student> studentsOfCurrentAddress) {
+		this.studentsOfCurrentAddress = studentsOfCurrentAddress;
+	}
+
+
+
+	public List<Student> getStudentsOfPermanentAddress() {
+		return studentsOfPermanentAddress;
+	}
+
+
+
+	public void setStudentsOfPermanentAddress(List<Student> studentsOfPermanentAddress) {
+		this.studentsOfPermanentAddress = studentsOfPermanentAddress;
+	}
+
+
 
 	public String getLine1() {
 		return line1;
@@ -58,11 +88,12 @@ public class Address implements Serializable {
 		this.line2 = line2;
 	}
 
-	public String getId() {
-		return this.id;
+
+	public long getId() {
+		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -122,23 +153,30 @@ public class Address implements Serializable {
 		this.village = village;
 	}
 
-	public List<Student> getStudents() {
-		return this.students;
-	}
-
-	public void setStudents(List<Student> students) {
-		this.students = students;
-	}
-
-	public Student addStudent(Student student) {
-		getStudents().add(student);
+	public Student addStudentToCurrentAddress(Student student) {
+		getStudentsOfCurrentAddress().add(student);
 		student.setCurrentAddress(this);
 
 		return student;
 	}
 
-	public Student removeStudent(Student student) {
-		getStudents().remove(student);
+	public Student removeStudentFromCurrentAddress(Student student) {
+		getStudentsOfCurrentAddress().remove(student);
+		student.setCurrentAddress(null);
+
+		return student;
+	}
+	
+	
+	public Student addStudentToPermanentAddress(Student student) {
+		getStudentsOfPermanentAddress().add(student);
+		student.setPermanentAddress(this);
+
+		return student;
+	}
+
+	public Student removeStudentFromPermanentAddress(Student student) {
+		getStudentsOfPermanentAddress().remove(student);
 		student.setCurrentAddress(null);
 
 		return student;

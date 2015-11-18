@@ -17,8 +17,9 @@ public class Student implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="SEQ_STUDENT")
+	@SequenceGenerator(name="SEQ_STUDENT",sequenceName="SEQ_STUDENT", allocationSize=1)
+	private long id;
 
 	@Column(name = "ADM_CLASS")
 	private int admissionClass;
@@ -189,11 +190,11 @@ public class Student implements Serializable {
 		return studentAttendances;
 	}
 
-	public String getId() {
+	public long getId() {
 		return this.id;
 	}
 
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

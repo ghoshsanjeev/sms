@@ -16,7 +16,7 @@ public class StudentAttendance implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String id;
+	private long id;
 
 	private BigDecimal attendance;
 
@@ -33,11 +33,11 @@ public class StudentAttendance implements Serializable {
 	public StudentAttendance() {
 	}
 
-	public String getId() {
+	public long getId() {
 		return this.id;
 	}
 
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

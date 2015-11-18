@@ -86,7 +86,7 @@ public class StudentController {
 		addressCurrent.setLine2(addressDTOCurrent.getAddressLine2());
 		addressCurrent.setCity(addressDTOCurrent.getCity());
 		addressCurrent.setDistrict(addressDTOCurrent.getDistrict());
-		addressCurrent.setPin(Long.valueOf(addressDTOCurrent.getPincode()));
+		//addressCurrent.setPin(Long.valueOf(addressDTOCurrent.getPincode()));
 		addressCurrent.setPo(addressDTOCurrent.getPostOffice());
 		addressCurrent.setPs(addressDTOCurrent.getPoliceStation());
 		addressCurrent.setState(addressDTOCurrent.getState());
@@ -119,7 +119,7 @@ public class StudentController {
 		student.setBpl(studentDTO.getBpl());
 		student.setCaste(studentDTO.getCaste());
 		student.setContNo(Long.valueOf(studentDTO.getContactNo()));
-		student.setDob(Utility.getDateFromString(studentDTO.getDateOfBirth()));
+		//student.setDob(Utility.getDateFromString(studentDTO.getDateOfBirth()));
 		student.setFeeAmt(studentDTO.getFeesAmt());
 
 		student.setGender(studentDTO.getSex());

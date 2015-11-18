@@ -16,7 +16,7 @@ public class CertificateField implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String id;
+	private long id;
 
 	@Column(name="FIELD_NAME")
 	private String fieldName;
@@ -28,11 +28,11 @@ public class CertificateField implements Serializable {
 	public CertificateField() {
 	}
 
-	public String getId() {
+	public long getId() {
 		return this.id;
 	}
 
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
