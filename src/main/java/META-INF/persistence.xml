@@ -11,6 +11,5 @@
 		<class>com.batb.sms.bean.StudentAttendance</class>
 		<class>com.batb.sms.bean.StudentCurrentStandard</class>
 		<class>com.batb.sms.bean.StudentCurrentStandardPerformance</class>
-		<class>com.batb.sms.bean.Student</class>
 	</persistence-unit>
 </persistence>

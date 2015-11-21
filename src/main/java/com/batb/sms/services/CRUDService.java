@@ -12,7 +12,7 @@ public abstract class CRUDService<T> {
 	return repo.findAll();
     }
 
-    public abstract T getById(String id);
+    public abstract T getById(int id);
 
     public T create(T obj){
 	return repo.save(obj);

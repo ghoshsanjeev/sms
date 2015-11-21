@@ -15,6 +15,7 @@ import com.batb.sms.constant.ViewNames;
 import com.batb.sms.dto.AddressDTO;
 import com.batb.sms.dto.StudentDTO;
 import com.batb.sms.repo.StudentRepository;
+import com.batb.sms.services.AddressService;
 import com.batb.sms.services.StudentService;
 import com.batb.sms.util.Utility;
 
@@ -34,6 +35,9 @@ public class StudentController {
 	@Autowired
 	private StudentService service;
 
+	@Autowired
+	private AddressService addressService;
+	
 	@RequestMapping(value = "/registration")
 	public String getRegistrationPage() {
 		return ViewNames.STUDENT_REGISTRATION;
@@ -102,6 +106,8 @@ public class StudentController {
 		addressPermanent.setState(addressDTOPermanent.getState());
 		addressPermanent.setVillage(addressDTOPermanent.getVillageOrTown());
 
+		addressService.create(addressPermanent);
+		addressService.create(addressCurrent);
 		student.setCurrentAddress(addressCurrent);
 		student.setPermanentAddress(addressPermanent);
 

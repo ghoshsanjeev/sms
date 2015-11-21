@@ -106,7 +106,6 @@ public class Student implements Serializable {
 	@Column(name = "STDNT_NAME")
 	private String name;
 
-	@Column(name = "STREEM")
 	private String stream;
 
 	private String subject;

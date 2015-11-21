@@ -15,7 +15,7 @@ public class StudentSeriviceImpl extends StudentService {
 	StudentRepository repo;
 
 	@Override
-	public Student getById(String id) {
+	public Student getById(int id) {
 		// TODO Auto-generated method stub
 		return repo.getById(id);
 	}
