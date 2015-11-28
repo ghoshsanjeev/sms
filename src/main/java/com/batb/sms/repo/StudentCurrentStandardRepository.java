@@ -1,4 +1,4 @@
-/*package com.batb.sms.repo;
+package com.batb.sms.repo;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.data.repository.query.Param;
 import com.batb.sms.bean.Student;
 import com.batb.sms.bean.StudentCurrentStandard;
 
-public interface StudentCurrentStandardRepository extends JpaRepository<StudentCurrentStandard, Long> {
-    public final static String FIND_STUDENT_BY_CLASS_AND_ROLL = "SELECT scs FROM StudentCurrentStandard scs WHERE scs.class_=:class_ AND scs.rollNo = :rollNo";
+public interface StudentCurrentStandardRepository extends JpaRepository<StudentCurrentStandard, Long>,StudentCurrentStandardCustomReposiroty {
+    /*public final static String FIND_STUDENT_BY_CLASS_AND_ROLL = "SELECT scs FROM StudentCurrentStandard scs WHERE scs.class_=:class_ AND scs.rollNo = :rollNo";
 
     StudentCurrentStandard getByStudent(Student student);
 
@@ -24,6 +24,7 @@ public interface StudentCurrentStandardRepository extends JpaRepository<StudentC
 
     
     @Query(FIND_STUDENT_BY_CLASS_AND_ROLL)
-    Student getStudentByClassAndRoll(@Param("class_") int class_, @Param("rollNo") int rollNo);
+    Student getStudentByClassAndRoll(@Param("class_") int class_, @Param("rollNo") int rollNo);*/
+	
+	
 }
-*/

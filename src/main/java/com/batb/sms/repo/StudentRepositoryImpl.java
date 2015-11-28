@@ -25,16 +25,19 @@ public class StudentRepositoryImpl implements StudentRepositoryCustom {
 
 	@Transactional(value = "transactionManager")
 	public BigDecimal getGeneratedRollNo(int class_, char section) {
-		Integer rollNo = 1;
+		BigDecimal rollNo = new BigDecimal(1);
 		Session session = (Session) smsEntityManager.unwrap(Session.class);
 		Query query = session.createSQLQuery("select fun_gen_roll_no(:v_section,:v_class) from dual");
 		query.setParameter("v_class", class_);
 		query.setParameter("v_section", section);
-		List result = query.list();
-		return (BigDecimal) result.get(0);
+		List<?> result = query.list();
+		if (result != null) {
+			rollNo = (BigDecimal) result.get(0);
+		} else {
+			log.debug("result is null");
+		}
+		return rollNo;
 
 	}
-	
-	
 
 }

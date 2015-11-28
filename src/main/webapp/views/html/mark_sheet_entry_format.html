@@ -2,7 +2,7 @@
 <html ng-app="smsApp">
 <head>
 <meta charset="ISO-8859-1">
-<title>Student Mark Sheet Entry</title>
+<title>Student Mark Sheet V-VIII</title>
 <!-- jQuery -->
 <script src="./../views/lib/jquery/jquery-2.1.4.min.js"></script>
 <!-- bootstrap -->
@@ -47,13 +47,13 @@
 </script>
 </head>
 <body ng-controller="smsController">
-<header>School Management System</header>
+	<header>School Management System</header>
 
-<div id="navDiv"></div>
+	<div id="navDiv"></div>
 	<div id="markSheetEntryDiv" class="markSheetEntryDiv">
 		<div class="markSheetEntryPanel panel panel-default">
 			<div class="panel-heading">
-				<h4 class="panel-title">Student Mark Sheet Entry :</h4>
+				<h4 class="panel-title">Student Mark Sheet V-VIII :</h4>
 			</div>
 			<div class="panel-body">
 
@@ -76,8 +76,9 @@
 							Semester:</label>
 					</div>
 					<div class="col-xs-3">
-						<div class="select-div" id="academicYear">
-							<select class="form-control" id="semester" name="semester">
+						<div class="select-div" id="semester">
+							<select class="form-control" id="semester" name="semester"
+								ng-model='student.semester'>
 								<option value="">~Select Semester~</option>
 								<option value="semester-1">Semester 1</option>
 								<option value="semester-2">Semester 2</option>
@@ -95,7 +96,8 @@
 					</div>
 					<div class="col-xs-3">
 						<div class="select-div" id="examination">
-							<select class="form-control" id="examination" name="examination">
+							<select class="form-control" id="examination" name="examination"
+								ng-model="student.examination">
 								<option value="">~Select Examination Name~</option>
 								<option value="formative">Formative</option>
 								<option value="summative">Summative</option>
@@ -108,12 +110,31 @@
 					<div class="col-xs-3">
 						<div class="select-div" id="class">
 							<select class="form-control" ng-model="selectedClass"
-								ng-options="c for c in classes | limitTo:4" id="class" name="class">
+								ng-options="c for c in classes | limitTo:4" id="class"
+								name="class">
 								<option value="">~ Select Class ~</option>
 							</select>
 						</div>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-xs-2">
+						<label for="Section" class="control-label">Section : </label>
+					</div>
+					<div class="col-xs-3">
+						<div class="select-div" id="section">
+							<select class="form-control" id="section" name="section"
+								ng-model="student.section">
+								<option value="">~Select Section~</option>
+								<option value="A">Secion-A</option>
+								<option value="B">Secion-B</option>
+								<option value="C">Secion-C</option>
+								<option value="D">Secion-D</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
 				<br />
 				<div class="row">
 					<table class="table table-hover markSheetEntryTable">
@@ -145,7 +166,7 @@
 								<td align="center">70</td>
 								<td align="center">50</td>
 								<td align="center">50</td>
-								
+
 							</tr>
 							<tr>
 								<td align="center">2</td>

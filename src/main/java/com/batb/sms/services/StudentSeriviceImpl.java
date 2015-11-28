@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.batb.sms.bean.Student;
+import com.batb.sms.dto.MarkSheetDTO;
+import com.batb.sms.repo.StudentCurrentStandardRepository;
 import com.batb.sms.repo.StudentRepository;
 
 @Service
@@ -13,6 +15,10 @@ public class StudentSeriviceImpl extends StudentService {
 
 	@Autowired
 	StudentRepository repo;
+	
+	@Autowired
+	StudentCurrentStandardRepository curRepo;
+	
 
 	@Override
 	public Student getById(int id) {
@@ -37,6 +43,11 @@ public class StudentSeriviceImpl extends StudentService {
 	public void remove(Student obj) {
 		repo.delete(obj);
 		;
+	}
+
+	@Override
+	public List<MarkSheetDTO> getByClass(int class_) {
+		return curRepo.getStudentDetails(class_);
 	}
 
 }

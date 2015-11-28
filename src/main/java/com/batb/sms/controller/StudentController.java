@@ -1,9 +1,12 @@
 package com.batb.sms.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +16,7 @@ import com.batb.sms.bean.Address;
 import com.batb.sms.bean.Student;
 import com.batb.sms.constant.ViewNames;
 import com.batb.sms.dto.AddressDTO;
+import com.batb.sms.dto.MarkSheetDTO;
 import com.batb.sms.dto.StudentDTO;
 import com.batb.sms.repo.StudentRepository;
 import com.batb.sms.services.AddressService;
@@ -154,5 +158,11 @@ public class StudentController {
 		}
 		return studentDTO;
 	}
+	
+	@RequestMapping(value="/getByClass/{class}")
+	public @ResponseBody List<MarkSheetDTO> getByClass_(@PathVariable("class") int class_){
+		return service.getByClass(class_);
+	}
+	
 
 }
