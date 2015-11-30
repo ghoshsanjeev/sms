@@ -159,9 +159,22 @@ public class StudentController {
 		return studentDTO;
 	}
 	
-	@RequestMapping(value="/getByClass/{class}")
-	public @ResponseBody List<MarkSheetDTO> getByClass_(@PathVariable("class") int class_){
-		return service.getByClass(class_);
+	@RequestMapping(value="/getByClassSemesterSectionExam",method=RequestMethod.POST)
+	public @ResponseBody List<MarkSheetDTO> getByClass_(@RequestBody MarkSheetDTO dto){
+		List<MarkSheetDTO> listOfMarkSheetDTO=service.getByClass(Integer.parseInt(dto.getCLASS()));
+		for(MarkSheetDTO markSheetDTO:listOfMarkSheetDTO){
+			markSheetDTO.setCLASS(dto.getCLASS());
+			markSheetDTO.setSECTION(dto.getSECTION());
+			markSheetDTO.setSEMESTER(dto.getSEMESTER());
+			markSheetDTO.setYEAR(dto.getYEAR());
+			markSheetDTO.setEXAM(dto.getEXAM());
+		}
+		return listOfMarkSheetDTO;
+	}
+	
+	@RequestMapping(value="/saveMarkSheet",method=RequestMethod.POST)
+	public @ResponseBody boolean saveMarkSheet(@RequestBody List<MarkSheetDTO> list){
+		return false;
 	}
 	
 

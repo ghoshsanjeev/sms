@@ -1,198 +1,197 @@
 package com.batb.sms.dto;
 
+import java.math.BigDecimal;
+
 public class MarkSheetDTO {
 
-	private String rollNo;
-	private String studentName;
-	private String class_;
-	private String section;
-	private String semester;
-	private String firstLangNo;
-	private String secondLangNo;
-	private String thirdLanagNo;
-	private String mathemmatics;
-	private String evs;
-	private String history;
-	private String geography;
-
+	private BigDecimal ROLLNO;
+	private String STUDENTNAME;
+	private String CLASS;
+	private String SECTION;
+	private String SEMESTER;
+	private String EXAM;
+	private String YEAR;
+	private String FIRSTLANGNO;
+	private String SECONDLANGNO;
+	private String THIRDLANGNO;
+	private String MATHEMATICS;
+	private String EVS;
+	private String HISTORY;
+	private String GEOGRAPHY;
+	
+	
+	
 	/**
-	 * @return the rollNo
+	 * @return the rOLLNO
 	 */
-	public String getRollNo() {
-		return rollNo;
+	public BigDecimal getROLLNO() {
+		return ROLLNO;
 	}
-
 	/**
-	 * @param rollNo
-	 *            the rollNo to set
+	 * @param rOLLNO the rOLLNO to set
 	 */
-	public void setRollNo(String rollNo) {
-		this.rollNo = rollNo;
+	public void setROLLNO(BigDecimal rOLLNO) {
+		ROLLNO = rOLLNO;
 	}
-
 	/**
-	 * @return the studentName
+	 * @return the sTUDENTNAME
 	 */
-	public String getStudentName() {
-		return studentName;
+	public String getSTUDENTNAME() {
+		return STUDENTNAME;
 	}
-
 	/**
-	 * @param studentName
-	 *            the studentName to set
+	 * @param sTUDENTNAME the sTUDENTNAME to set
 	 */
-	public void setStudentName(String studentName) {
-		this.studentName = studentName;
+	public void setSTUDENTNAME(String sTUDENTNAME) {
+		STUDENTNAME = sTUDENTNAME;
 	}
-
 	/**
-	 * @return the class_
+	 * @return the cLASS
 	 */
-	public String getClass_() {
-		return class_;
+	public String getCLASS() {
+		return CLASS;
 	}
-
 	/**
-	 * @param class_
-	 *            the class_ to set
+	 * @param cLASS the cLASS to set
 	 */
-	public void setClass_(String class_) {
-		this.class_ = class_;
+	public void setCLASS(String cLASS) {
+		CLASS = cLASS;
 	}
-
 	/**
-	 * @return the section
+	 * @return the sECTION
 	 */
-	public String getSection() {
-		return section;
+	public String getSECTION() {
+		return SECTION;
 	}
-
 	/**
-	 * @param section
-	 *            the section to set
+	 * @param sECTION the sECTION to set
 	 */
-	public void setSection(String section) {
-		this.section = section;
+	public void setSECTION(String sECTION) {
+		SECTION = sECTION;
 	}
-
 	/**
-	 * @return the semester
+	 * @return the sEMESTER
 	 */
-	public String getSemester() {
-		return semester;
+	public String getSEMESTER() {
+		return SEMESTER;
 	}
-
 	/**
-	 * @param semester
-	 *            the semester to set
+	 * @param sEMESTER the sEMESTER to set
 	 */
-	public void setSemester(String semester) {
-		this.semester = semester;
+	public void setSEMESTER(String sEMESTER) {
+		SEMESTER = sEMESTER;
 	}
-
 	/**
-	 * @return the firstLangNo
+	 * @return the fIRSTLANGNO
 	 */
-	public String getFirstLangNo() {
-		return firstLangNo;
+	public String getFIRSTLANGNO() {
+		return FIRSTLANGNO;
 	}
-
 	/**
-	 * @param firstLangNo
-	 *            the firstLangNo to set
+	 * @param fIRSTLANGNO the fIRSTLANGNO to set
 	 */
-	public void setFirstLangNo(String firstLangNo) {
-		this.firstLangNo = firstLangNo;
+	public void setFIRSTLANGNO(String fIRSTLANGNO) {
+		FIRSTLANGNO = fIRSTLANGNO;
 	}
-
 	/**
-	 * @return the secondLangNo
+	 * @return the sECONDLANGNO
 	 */
-	public String getSecondLangNo() {
-		return secondLangNo;
+	public String getSECONDLANGNO() {
+		return SECONDLANGNO;
 	}
-
 	/**
-	 * @param secondLangNo
-	 *            the secondLangNo to set
+	 * @param sECONDLANGNO the sECONDLANGNO to set
 	 */
-	public void setSecondLangNo(String secondLangNo) {
-		this.secondLangNo = secondLangNo;
+	public void setSECONDLANGNO(String sECONDLANGNO) {
+		SECONDLANGNO = sECONDLANGNO;
 	}
-
 	/**
-	 * @return the thirdLanagNo
+	 * @return the tHIRDLANGNO
 	 */
-	public String getThirdLanagNo() {
-		return thirdLanagNo;
+	public String getTHIRDLANGNO() {
+		return THIRDLANGNO;
 	}
-
 	/**
-	 * @param thirdLanagNo
-	 *            the thirdLanagNo to set
+	 * @param tHIRDLANGNO the tHIRDLANGNO to set
 	 */
-	public void setThirdLanagNo(String thirdLanagNo) {
-		this.thirdLanagNo = thirdLanagNo;
+	public void setTHIRDLANGNO(String tHIRDLANGNO) {
+		THIRDLANGNO = tHIRDLANGNO;
 	}
-
 	/**
-	 * @return the mathemmatics
+	 * @return the mATHEMATICS
 	 */
-	public String getMathemmatics() {
-		return mathemmatics;
+	public String getMATHEMATICS() {
+		return MATHEMATICS;
 	}
-
 	/**
-	 * @param mathemmatics
-	 *            the mathemmatics to set
+	 * @param mATHEMATICS the mATHEMATICS to set
 	 */
-	public void setMathemmatics(String mathemmatics) {
-		this.mathemmatics = mathemmatics;
+	public void setMATHEMATICS(String mATHEMATICS) {
+		MATHEMATICS = mATHEMATICS;
 	}
-
 	/**
-	 * @return the evs
+	 * @return the eVS
 	 */
-	public String getEvs() {
-		return evs;
+	public String getEVS() {
+		return EVS;
 	}
-
 	/**
-	 * @param evs
-	 *            the evs to set
+	 * @param eVS the eVS to set
 	 */
-	public void setEvs(String evs) {
-		this.evs = evs;
+	public void setEVS(String eVS) {
+		EVS = eVS;
 	}
-
 	/**
-	 * @return the history
+	 * @return the hISTORY
 	 */
-	public String getHistory() {
-		return history;
+	public String getHISTORY() {
+		return HISTORY;
 	}
-
 	/**
-	 * @param history
-	 *            the history to set
+	 * @param hISTORY the hISTORY to set
 	 */
-	public void setHistory(String history) {
-		this.history = history;
+	public void setHISTORY(String hISTORY) {
+		HISTORY = hISTORY;
 	}
-
 	/**
-	 * @return the geography
+	 * @return the gEOGRAPHY
 	 */
-	public String getGeography() {
-		return geography;
+	public String getGEOGRAPHY() {
+		return GEOGRAPHY;
 	}
-
 	/**
-	 * @param geography
-	 *            the geography to set
+	 * @param gEOGRAPHY the gEOGRAPHY to set
 	 */
-	public void setGeography(String geography) {
-		this.geography = geography;
+	public void setGEOGRAPHY(String gEOGRAPHY) {
+		GEOGRAPHY = gEOGRAPHY;
 	}
+	/**
+	 * @return the eXAM
+	 */
+	public String getEXAM() {
+		return EXAM;
+	}
+	/**
+	 * @param eXAM the eXAM to set
+	 */
+	public void setEXAM(String eXAM) {
+		EXAM = eXAM;
+	}
+	/**
+	 * @return the yEAR
+	 */
+	public String getYEAR() {
+		return YEAR;
+	}
+	/**
+	 * @param yEAR the yEAR to set
+	 */
+	public void setYEAR(String yEAR) {
+		YEAR = yEAR;
+	}
+	
+	
+
+	
 
 }

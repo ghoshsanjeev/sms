@@ -64,7 +64,7 @@
 					</div>
 					<div class="col-xs-3">
 						<div class="select-div" id="academicYear">
-							<select class="form-control" ng-model="selectedYear"
+							<select class="form-control" ng-model="markSheet.year"
 								ng-options="y for y in years" id="academicYear"
 								name="academicYear">
 								<option value="">~ Select Year ~</option>
@@ -78,7 +78,7 @@
 					<div class="col-xs-3">
 						<div class="select-div" id="semester">
 							<select class="form-control" id="semester" name="semester"
-								ng-model='student.semester'>
+								ng-model='markSheet.semester'>
 								<option value="">~Select Semester~</option>
 								<option value="semester-1">Semester 1</option>
 								<option value="semester-2">Semester 2</option>
@@ -97,7 +97,7 @@
 					<div class="col-xs-3">
 						<div class="select-div" id="examination">
 							<select class="form-control" id="examination" name="examination"
-								ng-model="student.examination">
+								ng-model="markSheet.exam">
 								<option value="">~Select Examination Name~</option>
 								<option value="formative">Formative</option>
 								<option value="summative">Summative</option>
@@ -109,14 +109,16 @@
 					</div>
 					<div class="col-xs-3">
 						<div class="select-div" id="class">
-							<select class="form-control" ng-model="selectedClass"
+							<select class="form-control" ng-model="markSheet.class"
 								ng-options="c for c in classes | limitTo:4" id="class"
 								name="class">
 								<option value="">~ Select Class ~</option>
 							</select>
+							<div ng-bind="selectedClass" id="selectedClass" hidden=""></div>
 						</div>
 					</div>
 				</div>
+				<br />
 				<div class="row">
 					<div class="col-xs-2">
 						<label for="Section" class="control-label">Section : </label>
@@ -124,7 +126,7 @@
 					<div class="col-xs-3">
 						<div class="select-div" id="section">
 							<select class="form-control" id="section" name="section"
-								ng-model="student.section">
+								ng-model="markSheet.section">
 								<option value="">~Select Section~</option>
 								<option value="A">Secion-A</option>
 								<option value="B">Secion-B</option>
@@ -155,32 +157,34 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td align="center">1</td>
-								<td align="center">Bill Gates</td>
-								<td align="center">Section-A</td>
-								<td align="center">76</td>
-								<td align="center">70</td>
-								<td align="center">50</td>
-								<td align="center">76</td>
-								<td align="center">70</td>
-								<td align="center">50</td>
-								<td align="center">50</td>
-
+							<tr ng-repeat="student in studentRecords">
+								<td align="center">{{student.rollno}}</td>
+								<td align="center">{{student.studentname}}</td>
+								<td align="center">{{student.section}}</td>
+								<td align="center"><input type="text"
+									ng-model="student.firstlangno" class="form-control"
+									placeholder="Enter Number" />
+								<td align="center"><input type="text"
+									ng-model="student.secondlangno" class="form-control"
+									placeholder="Enter Number" />
+								<td align="center"><input type="text"
+									ng-model="student.thirdlangno" class="form-control"
+									placeholder="Enter Number" />
+								<td align="center"><input type="text"
+									ng-model="student.mathematics" class="form-control"
+									placeholder="Enter Number" />
+								<td align="center"><input type="text"
+									ng-model="student.evs" class="form-control"
+									placeholder="Enter Number" />
+								<td align="center"><input type="text"
+									ng-model="student.history" class="form-control"
+									placeholder="Enter Number" />
+								<td align="center"><input type="text"
+									ng-model="student.geography" class="form-control"
+									placeholder="Enter Number" />
 							</tr>
-							<tr>
-								<td align="center">2</td>
-								<td align="center">Narendra Modi</td>
-								<td align="center">Section-B</td>
-								<td align="center">79</td>
-								<td align="center">78</td>
-								<td align="center">60</td>
-								<td align="center">79</td>
-								<td align="center">78</td>
-								<td align="center">60</td>
-								<td align="center">50</td>
 
-							</tr>
+
 						</tbody>
 					</table>
 				</div>
@@ -188,7 +192,7 @@
 				<br />
 				<hr>
 				<center>
-					<button type="button" class="btn btn-primary">Save</button>
+					<button type="button" class="btn btn-primary" id="markSheetSave">Save</button>
 			</div>
 		</div>
 	</div>

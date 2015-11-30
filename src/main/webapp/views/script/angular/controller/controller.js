@@ -108,25 +108,59 @@ smsApp.controller("smsController", function($scope, $timeout, $http, $q,
 			$scope.$apply();
 		});
 	});
-	$("select[id='class'],select[id='section']").on('change',function(){
-		$scope.student.class_=$scope.selectedClass;
+	$("#studentRegistrationDiv select[id='class'],#studentRegistrationDiv select[id='section']").on('change',function(){
+		
 		
 		$timeout(function() {
 			$scope.$apply();
-		});
-		if($scope.student.studentType=="new"){
-			WebServices._post("./getRollNo",$scope.student).then(function(value) {
-				$scope.student.rollNo = value.data.rollNo;
-				$timeout(function() {
-					$scope.$apply();
+			$scope.student.class_=$scope.selectedClass;
+			if($scope.student.studentType=="new"){
+				WebServices._post("./getRollNo",$scope.student).then(function(value) {
+					$scope.student.rollNo = value.data.rollNo;
+					$timeout(function() {
+						$scope.$apply();
+					});
+				}, function(reason) {
+
+				}, function(value) {
+
 				});
-			}, function(reason) {
-
-			}, function(value) {
-
-			});
-		}
+			}
+		});
+		
 	});
+	
+	$("#markSheetEntryDiv select[name='class']").on('change',function(){
+		$timeout(function() {
+			$scope.$apply();
+			console.log($scope.selectedClass);
+			console.log($scope.selectedClass)
+			WebServices._post("./getByClassSemesterSectionExam",$scope.markSheet).then(function(value) {
+				console.log(value.data);
+				$scope.studentRecords=value.data;
+				
+			}, function(reason) {
+				
+			}, function(value) {
+				
+			});
+			
+		});//end of timeout		
+	});//end of on-change
+	
+	$("#markSheetSave").on('click',function(){
+		$timeout(function() {
+			$scope.$apply();
+			console.log($scope.studentRecords);
+			WebServices.post("./saveMarkSheet", $scope.studentRecords).then(function(value) {
+				console.log(value.data)
+			}, function(reason) {
+				
+			}, function(value) {
+				
+			});
+		});//end of timeout
+	});//end of on click
 	
 
 	$("#saveButton").on('click',function() {

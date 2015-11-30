@@ -30,7 +30,7 @@ public class StudentCurrentStandardRepositoryImpl implements StudentCurrentStand
 	public List<MarkSheetDTO> getStudentDetails(int class_) {
 		Session session = (Session) smsEntityManager.unwrap(Session.class);
 		Query query = session.createSQLQuery(
-				"SELECT b.stdnt_name studentName,a.roll_no rollNo FROM tbl_std_curr_std a,tbl_student b WHERE a.student=b.id and a.class=:class");
+				"SELECT b.stdnt_name StudentName,a.roll_no rollNo FROM tbl_std_curr_std a,tbl_student b WHERE a.student=b.id and a.class=:class");
 		query.setParameter("class", class_);
 		List<MarkSheetDTO> resultList=query.setResultTransformer(new AliasToBeanResultTransformer(MarkSheetDTO.class)).list();
 		return resultList;
